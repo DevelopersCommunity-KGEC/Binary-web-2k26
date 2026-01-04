@@ -1,3 +1,5 @@
+
+import Gallary from "./components/gallary";
 import ScrollFlipCard from "./components/ScrollFlipCard";
 import Timeline from "./components/Timeline";
 import AboutSection from "./components/AboutSection";
@@ -13,6 +15,8 @@ export default function Home() {
       <section className="h-screen bg-black flex items-center justify-center z-100">
         <AboutSection />
       </section>
+
+      <Gallary />
     </>
   );
 }
