@@ -1,4 +1,5 @@
 import ScrollFlipCard from "./components/ScrollFlipCard";
+import Timeline from "./components/Timeline";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       </section> */}
 
       <ScrollFlipCard />      
+      <Timeline />
 
       <section className="h-screen bg-white flex items-center justify-center">
         <h2 className="text-5xl font-bold">
