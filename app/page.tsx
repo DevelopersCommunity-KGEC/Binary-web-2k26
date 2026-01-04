@@ -1,3 +1,5 @@
+
+import Gallary from "./components/gallary";
 import ScrollFlipCard from "./components/ScrollFlipCard";
 import Timeline from "./components/Timeline";
 import AboutSection from "./components/AboutSection";
@@ -15,6 +17,8 @@ export default function Home() {
       </section>
 
       <Timeline />
+
+      <Gallary />
     </>
   );
 }
