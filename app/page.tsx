@@ -1,6 +1,5 @@
 import ScrollFlipCard from "./components/ScrollFlipCard";
 import Timeline from "./components/Timeline";
-import AboutSection from "./components/AboutSection";
 import Tracks from "./components/Tracks";
 import Mentors from "./components/Mentors";
 
@@ -13,9 +12,6 @@ export default function Home() {
         <AboutSection />
       </section> */}
       <Timeline />
-
-      <ScrollFlipCard />
-
       <section className="h-screen bg-white flex items-center justify-center">
         <h2 className="text-5xl font-bold">
           Fully Transitioned Section
