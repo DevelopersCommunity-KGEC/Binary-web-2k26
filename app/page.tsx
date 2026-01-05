@@ -13,6 +13,8 @@ import AboutSection from "./components/AboutSection";
 import Navbar from "./components/Navbar";
 import FAQs from "./components/Faq";
 import Footer from "./components/Footer";
+import CommunityPartners from "./components/CommunityPartners";
+import Sponsors from "./components/Sponsors";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -50,6 +52,8 @@ export default function Home() {
             <Mentors />
             <Timeline />
             <Gallary />
+            <Sponsors />
+            <CommunityPartners />
             <FAQs />
             <Footer />
           </>
