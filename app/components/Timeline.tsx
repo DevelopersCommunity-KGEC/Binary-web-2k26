@@ -315,7 +315,7 @@ const Timeline = () => {
         </div>
         <div className="">
           {/* Desktop View */}
-          <div className="main-bar relative w-full h-[1000px] z-20 hidden lg:block">
+          <div className="main-bar relative w-full h-[999px] z-20 hidden lg:block">
             {/* Background SVG */}
             <div className="absolute top-0 left-0 w-full h-full z-0 overflow-x-hidden pointer-events-none select-none transform-gpu">
                <PacmanPathSVG 
