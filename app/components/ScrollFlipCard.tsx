@@ -118,7 +118,7 @@ if (p >= SHRINK_END && p < HOLD_END) {
 
   return (
     <section ref={sectionRef} className="relative h-[300vh] bg-black">
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="perspective">
           <div
             onMouseMove={handleMouseMove}
@@ -132,9 +132,9 @@ if (p >= SHRINK_END && p < HOLD_END) {
               `,
               borderRadius: `${radius}px`,
             }}
-            className="relative w-screen h-screen
-                       transition-transform duration-100 ease-out
-                       preserve-3d"
+            className="relative w-screen h-screen overflow-hidden
+           transition-transform duration-100 ease-out
+           preserve-3d"
           >
             {/* ---------- FRONT FACE ---------- */}
             <div
@@ -161,10 +161,12 @@ if (p >= SHRINK_END && p < HOLD_END) {
 
             {/* ---------- BACK FACE ---------- */}
             <div
-              style={{ opacity: showBack ? 1 : 0 }}
-              className="absolute inset-0 face-hidden rotate-y-180
-                          flex items-center justify-center"
-            >
+  style={{ opacity: showBack ? 1 : 0 }}
+  className="absolute inset-0 face-hidden rotate-y-180
+             flex items-center justify-center
+             overflow-hidden"
+>
+
               <h2
                 style={{
                   opacity: textOpacity,
