@@ -45,9 +45,7 @@ export default function Home() {
             <Navbar />
             <h1 className="text-white">Binary 2k26</h1>
             <ScrollFlipCard />
-            <section className="h-screen bg-black flex items-center justify-center z-100">
               <AboutSection />
-            </section>
             <Tracks />
             <Mentors />
             <Timeline />
