@@ -20,255 +20,261 @@ import PacmanPathSVG from './PacmanPathSVG';
 
 
 const Timeline = () => {
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    // Pacman Chomp Animation Shape
-    // Pacman Chomp Animation Shapes
-    const pacman_mobile_closed = "M39.056 11.4991C37.1199 7.47643 33.8656 4.19748 29.8069 2.1799C25.7482 0.162314 21.1163 -0.478974 16.6425 0.357277C12.1687 1.19353 8.10777 3.45968 5.10088 6.79797C2.094 10.1363 0.312415 14.3565 0.0373966 18.7925C-0.237622 23.2285 1.00959 27.6275 3.58213 31.295C6.15468 34.9625 9.90601 37.6897 14.2439 39.0459C18.5818 40.4021 23.2591 40.3102 27.5375 38.7846C31.8158 37.259 35.4515 34.3866 37.8705 30.6209L20.5 20L39.056 11.4991Z";
+    const ctx = gsap.context(() => {
+      // Pacman Chomp Animation Shape
+      const pacman_mobile_closed = "M39.056 11.4991C37.1199 7.47643 33.8656 4.19748 29.8069 2.1799C25.7482 0.162314 21.1163 -0.478974 16.6425 0.357277C12.1687 1.19353 8.10777 3.45968 5.10088 6.79797C2.094 10.1363 0.312415 14.3565 0.0373966 18.7925C-0.237622 23.2285 1.00959 27.6275 3.58213 31.295C6.15468 34.9625 9.90601 37.6897 14.2439 39.0459C18.5818 40.4021 23.2591 40.3102 27.5375 38.7846C31.8158 37.259 35.4515 34.3866 37.8705 30.6209L20.5 20L39.056 11.4991Z";
 
-    // Desktop Closed Shape (Approximate closed mouth at 710, 20)
-    // Desktop Closed Shape (Keeping body C curves identical to Open state, only modifying Mouth Start/End Y)
-    const pacman_desktop_closed = "M729.167 11.7332C727.257 7.62855 723.982 4.2737 719.873 2.21275C715.763 0.151797 711.061 -0.494394 706.528 0.378977C701.995 1.25235 697.898 3.59406 694.9 7.02433C691.902 10.4546 690.18 14.7723 690.013 19.2771C689.846 23.7819 691.244 28.2096 693.98 31.8422C696.716 35.4748 700.629 38.0992 705.086 39.2898C709.542 40.4804 714.28 40.1673 718.531 38.4014C722.782 36.6355 726.297 33.5202 728.506 29.5609L710.5 20L729.167 11.7332Z";
-    // Mobile Animation
-    gsap.to(".pattern-rect-mobile", {
-      attr: { d: pacman_mobile_closed },
-      duration: 0.2, 
-      ease: "power1.inOut",
-      repeat: -1,
-      yoyo: true, 
-    });
+      // Desktop Closed Shape (Approximate closed mouth at 710, 20)
+      const pacman_desktop_closed = "M729.167 11.7332C727.257 7.62855 723.982 4.2737 719.873 2.21275C715.763 0.151797 711.061 -0.494394 706.528 0.378977C701.995 1.25235 697.898 3.59406 694.9 7.02433C691.902 10.4546 690.18 14.7723 690.013 19.2771C689.846 23.7819 691.244 28.2096 693.98 31.8422C696.716 35.4748 700.629 38.0992 705.086 39.2898C709.542 40.4804 714.28 40.1673 718.531 38.4014C722.782 36.6355 726.297 33.5202 728.506 29.5609L710.5 20L729.167 11.7332Z";
 
-    // Desktop/Tab Animation
-    gsap.to([".pattern-rect-desktop", ".pattern-rect-tab"], {
-        attr: { d: pacman_desktop_closed },
-        duration: 0.2,
+      // Mobile Animation
+      gsap.to(".pattern-rect-mobile", {
+        attr: { d: pacman_mobile_closed },
+        duration: 0.2, 
         ease: "power1.inOut",
         repeat: -1,
-        yoyo: true,
-    });
+        yoyo: true, 
+      });
 
-    // --- Desktop Animation ---
-    const desktopPath = document.querySelector("#path-desktop") as SVGPathElement;
-    const desktopPacman = document.querySelector(".pattern-rect-desktop");
-    const desktopSvg = document.querySelector(".desktop-svg");
+      // Desktop/Tab Animation
+      gsap.to([".pattern-rect-desktop", ".pattern-rect-tab"], {
+          attr: { d: pacman_desktop_closed },
+          duration: 0.2,
+          ease: "power1.inOut",
+          repeat: -1,
+          yoyo: true,
+      });
 
-    if (desktopPath && desktopPacman && desktopSvg) {
-        const length = desktopPath.getTotalLength();
-        gsap.set(desktopPath, { strokeDasharray: 10 });
-        
-        gsap.fromTo(desktopPath,
-            { strokeDashoffset: 0 },
-            {
-                strokeDashoffset: length,
-                duration: 10,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: desktopSvg,
-                    start: "top 30%",
-                    end: "bottom bottom",
-                    scrub: 2,
-                },
-            }
-        );
+      // --- Desktop Animation ---
+      const desktopPath = document.querySelector("#path-desktop") as SVGPathElement;
+      const desktopPacman = document.querySelector(".pattern-rect-desktop");
+      const desktopSvg = document.querySelector(".desktop-svg");
 
-        gsap.to(desktopPacman, {
-            motionPath: {
-                path: desktopPath,
-                align: desktopPath,
-                alignOrigin: [0.5, 0.5],
-                autoRotate: true,
-                start: 0,
-                end: 1,
-            },
-            transformOrigin: "50% 50%",
-            duration: 5,
-            ease: "none",
-            immediateRender: true,
-            scrollTrigger: {
-                trigger: desktopSvg,
-                start: "top 30%",
-                end: "bottom bottom",
-                scrub: 2,
-            },
-        });
-    }
+      if (desktopPath && desktopPacman && desktopSvg) {
+          const length = desktopPath.getTotalLength();
+          gsap.set(desktopPath, { strokeDasharray: 10 });
+          
+          gsap.fromTo(desktopPath,
+              { strokeDashoffset: 0 },
+              {
+                  strokeDashoffset: length,
+                  duration: 10,
+                  ease: "none",
+                  scrollTrigger: {
+                      trigger: desktopSvg,
+                      start: "top 30%",
+                      end: "bottom bottom",
+                      scrub: 2,
+                  },
+              }
+          );
 
-    // --- Tab Animation ---
-    const tabPath = document.querySelector("#path-tab") as SVGPathElement;
-    const tabPacman = document.querySelector(".pattern-rect-tab");
-    const tabSvg = document.querySelector(".tab-svg");
-
-    if (tabPath && tabPacman && tabSvg) {
-        const length = tabPath.getTotalLength();
-        gsap.set(tabPath, { strokeDasharray: 10 });
-
-        gsap.fromTo(tabPath,
-            { strokeDashoffset: 0 },
-            {
-                strokeDashoffset: length,
-                duration: 10,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: tabSvg, 
-                    start: "top 20%",
-                    end: "bottom bottom",
-                    scrub: 2,
-                },
-            }
-        );
-
-        gsap.to(tabPacman, {
-            motionPath: {
-                path: tabPath,
-                align: tabPath,
-                alignOrigin: [0.5, 0.5],
-                autoRotate: true,
-                start: 0, 
-                end: 1,
-            },
-            transformOrigin: "50% 50%",
-            duration: 5,
-            ease: "none",
-            immediateRender: true,
-            scrollTrigger: {
-                trigger: tabSvg,
-                start: "top 20%",
-                end: "bottom bottom",
-                scrub: 2,
-                markers: false,
-            },
-        });
-    }
-
-    // --- Mobile (Phone) Animation ---
-    const mobilePath = document.querySelector("#path-mobile") as SVGPathElement;
-    const mobilePacman = document.querySelector(".pattern-rect-mobile");
-    const mobileSvg = document.querySelector(".mobile-svg");
-
-    if (mobilePath && mobilePacman && mobileSvg) {
-        const length = mobilePath.getTotalLength();
-        gsap.set(mobilePath, { strokeDasharray: 10 });
-
-        gsap.fromTo(mobilePath,
-            { strokeDashoffset: 0 },
-            {
-                strokeDashoffset: length,
-                duration: 10,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: mobileSvg,
-                    start: "top 20%",
-                    end: "bottom 70%",
-                    scrub: 1,
-                },
-            }
-        );
-
-        gsap.to(mobilePacman, {
-            motionPath: {
-                path: mobilePath,
-                align: mobilePath,
-                alignOrigin: [0.5, 0.5],
-                autoRotate: true,
-                start: 0, 
-                end: 1,
-            },
-            transformOrigin: "50% 50%",
-            duration: 10,
-            immediateRender: true,
-            ease: "none",
-            scrollTrigger: {
-                trigger: mobileSvg,
-                start: "top 20%",
-                end: "bottom 70%",
-                scrub: 1,
-            },
-        });
-    }
-
-    // Desktop Timeline Box Animations
-    const desktopTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".desktop-svg",
-        start: "top 30%",
-        end: "bottom bottom",
-        scrub: 2,
+          gsap.to(desktopPacman, {
+              motionPath: {
+                  path: desktopPath,
+                  align: desktopPath,
+                  alignOrigin: [0.5, 0.5],
+                  autoRotate: true,
+                  start: 0,
+                  end: 1,
+              },
+              transformOrigin: "50% 50%",
+              duration: 5,
+              ease: "none",
+              immediateRender: true,
+              scrollTrigger: {
+                  trigger: desktopSvg,
+                  start: "top 30%",
+                  end: "bottom bottom",
+                  scrub: 2,
+              },
+          });
       }
-    });
 
-    const desktopBoxes = [
-      ".second-timeline-box",
-      ".first-timeline-box", 
-      ".fourth-timeline-box",
-      ".third-timeline-box",
-      ".sixth-timeline-box",
-      ".fifth-timeline-box"
-    ];
+      // --- Tab Animation ---
+      const tabPath = document.querySelector("#path-tab") as SVGPathElement;
+      const tabPacman = document.querySelector(".pattern-rect-tab");
+      const tabSvg = document.querySelector(".tab-svg");
 
-    desktopBoxes.forEach((box) => {
-       const els = gsap.utils.toArray(box);
-       if (els.length > 0) {
-         desktopTl.fromTo(els, 
-           { y: 50, opacity: 0 },
-           { y: 0, opacity: 1, duration: 1 },
-           ">-.5" 
-         );
-       }
-    });
+      if (tabPath && tabPacman && tabSvg) {
+          const length = tabPath.getTotalLength();
+          gsap.set(tabPath, { strokeDasharray: 10 });
 
-    // Tab Timeline Box Animations
-    const tabTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".tab-svg",
-        start: "top 20%",
-        end: "bottom bottom",
-        scrub: 2,
+          gsap.fromTo(tabPath,
+              { strokeDashoffset: 0 },
+              {
+                  strokeDashoffset: length,
+                  duration: 10,
+                  ease: "none",
+                  scrollTrigger: {
+                      trigger: tabSvg, 
+                      start: "top 20%",
+                      end: "bottom bottom",
+                      scrub: 2,
+                  },
+              }
+          );
+
+          gsap.to(tabPacman, {
+              motionPath: {
+                  path: tabPath,
+                  align: tabPath,
+                  alignOrigin: [0.5, 0.5],
+                  autoRotate: true,
+                  start: 0, 
+                  end: 1,
+              },
+              transformOrigin: "50% 50%",
+              duration: 5,
+              ease: "none",
+              immediateRender: true,
+              scrollTrigger: {
+                  trigger: tabSvg,
+                  start: "top 20%",
+                  end: "bottom bottom",
+                  scrub: 2,
+                  markers: true,
+              },
+          });
       }
-    });
 
-    const tabBoxes = [
-      ".second-timeline-box-tab",
-      ".first-timeline-box-tab",
-      ".fourth-timeline-box-tab",
-      ".third-timeline-box-tab",
-      ".sixth-timeline-box-tab",
-      ".fifth-timeline-box-tab"
-    ];
+      // --- Mobile (Phone) Animation ---
+      const mobilePath = document.querySelector("#path-mobile") as SVGPathElement;
+      const mobilePacman = document.querySelector(".pattern-rect-mobile");
+      const mobileSvg = document.querySelector(".mobile-svg");
 
-    tabBoxes.forEach((box, index) => {
-      const els = gsap.utils.toArray(box);
-      if (els.length > 0) {
-        const isLeft = index % 2 !== 0;
-        const xStart = isLeft ? -100 : 100;
+      if (mobilePath && mobilePacman && mobileSvg) {
+          const length = mobilePath.getTotalLength();
+          gsap.set(mobilePath, { strokeDasharray: 10 });
 
-        tabTl.fromTo(els,
-          { x: xStart, opacity: 0 },
-          { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
-          ">-.5"
-        );
+          gsap.fromTo(mobilePath,
+              { strokeDashoffset: 0 },
+              {
+                  strokeDashoffset: length,
+                  duration: 10,
+                  ease: "none",
+                  scrollTrigger: {
+                      trigger: mobileSvg,
+                      start: "top 20%",
+                      end: "bottom bottom",
+                      scrub: 1,
+                  },
+              }
+          );
+
+          gsap.to(mobilePacman, {
+              motionPath: {
+                  path: mobilePath,
+                  align: mobilePath,
+                  alignOrigin: [0.5, 0.5],
+                  autoRotate: true,
+                  start: 0, 
+                  end: 1,
+              },
+              transformOrigin: "50% 50%",
+              duration: 10,
+              immediateRender: true,
+              ease: "none",
+              scrollTrigger: {
+                  trigger: mobileSvg,
+                  start: "top 20%",
+                  end: "bottom bottom",
+                  scrub: 1,
+                  markers: true,
+              },
+          });
       }
-    });
 
-    // Mobile (Phone) Timeline Box Animations
-    const mobileTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".mobile-svg",
-        start: "top 20%",
-        end: "bottom 70%",
-        scrub: 1,
-      }
-    });
+      // Desktop Timeline Box Animations
+      const desktopTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".desktop-svg",
+          start: "top 30%",
+          end: "bottom bottom",
+          scrub: 2,
+        }
+      });
 
-    const mobileBoxes = gsap.utils.toArray(".mobile-timeline-box");
-    if (mobileBoxes.length > 0) {
-      mobileBoxes.forEach((box: any) => {
-          mobileTl.fromTo(box,
-            { x: 50, opacity: 0 },
+      const desktopBoxes = [
+        ".second-timeline-box",
+        ".first-timeline-box", 
+        ".fourth-timeline-box",
+        ".third-timeline-box",
+        ".sixth-timeline-box",
+        ".fifth-timeline-box"
+      ];
+
+      desktopBoxes.forEach((box) => {
+         const els = gsap.utils.toArray(box);
+         if (els.length > 0) {
+           desktopTl.fromTo(els, 
+             { y: 50, opacity: 0 },
+             { y: 0, opacity: 1, duration: 1 },
+             ">-.5" 
+           );
+         }
+      });
+
+      // Tab Timeline Box Animations
+      const tabTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".tab-svg",
+          start: "top 20%",
+          end: "bottom bottom",
+          scrub: 2,
+        }
+      });
+
+      const tabBoxes = [
+        ".second-timeline-box-tab",
+        ".first-timeline-box-tab",
+        ".fourth-timeline-box-tab",
+        ".third-timeline-box-tab",
+        ".sixth-timeline-box-tab",
+        ".fifth-timeline-box-tab"
+      ];
+
+      tabBoxes.forEach((box, index) => {
+        const els = gsap.utils.toArray(box);
+        if (els.length > 0) {
+          const isLeft = index % 2 !== 0;
+          const xStart = isLeft ? -100 : 100;
+
+          tabTl.fromTo(els,
+            { x: xStart, opacity: 0 },
             { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
             ">-.5"
           );
+        }
       });
-    }
 
+      // Mobile (Phone) Timeline Box Animations
+      const mobileTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".mobile-svg",
+          start: "top 20%",
+          end: "bottom bottom",
+          scrub: 1,
+        }
+      });
+
+      const mobileBoxes = gsap.utils.toArray(".mobile-timeline-box");
+      if (mobileBoxes.length > 0) {
+        mobileBoxes.forEach((box: any) => {
+            mobileTl.fromTo(box,
+              { x: 50, opacity: 0 },
+              { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
+              ">-.5"
+            );
+        });
+      }
+
+    }, containerRef); // Scope to container
+
+    return () => ctx.revert(); // Cleanup on unmount
   }, []);
 
 
@@ -276,7 +282,7 @@ const Timeline = () => {
 
   return (
     <PageSection id="timeline justify-center">
-      <div className="mb-10 ">
+      <div className="mb-10 " ref={containerRef}>
         <div className="mx:text-[4rem] mb-10 mt-16 font-pixelate text-[3rem] font-bold text-white">
           <div className="shad relative w-full overflow-x-hidden pt-5 text-xl sm:hidden">
             <h2 className="relative mx-0 mb-10 flex max-w-sm flex-row pt-4 text-left font-pixelate font-bold uppercase md:w-max md:max-w-max md:pt-0">
@@ -309,12 +315,12 @@ const Timeline = () => {
         </div>
         <div className="">
           {/* Desktop View */}
-          <div className="main-bar relative w-full h-[1600px] z-20 hidden lg:block">
+          <div className="main-bar relative w-full h-[999px] z-20 hidden lg:block">
             {/* Background SVG */}
             <div className="absolute top-0 left-0 w-full h-full z-0 overflow-x-hidden pointer-events-none select-none transform-gpu">
                <PacmanPathSVG 
                  className_svg="desktop-svg w-full h-full" 
-                 className_path="w-full h-full stroke-green-600" 
+                 className_path="w-full h-full " 
                  pathId="path-desktop"
                  pacmanClass="pattern-rect-desktop"
                />
@@ -368,7 +374,7 @@ const Timeline = () => {
              <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none select-none transform-gpu">
                <PacmanPathSVG 
                  className_svg="tab-svg w-full h-full" 
-                 className_path="w-full h-full stroke-green-600" 
+                 className_path="w-full h-full " 
                  pathId="path-tab"
                  pacmanClass="pattern-rect-tab"
                  preserveAspectRatio="xMidYMid slice"
@@ -397,7 +403,7 @@ const Timeline = () => {
                 </div>
 
                 {/* Right Side */}
-                <div className="right-side w-1/2 h-full flex flex-col gap-[1rem] items-start pl-[2%] pointer-events-auto">
+                <div className="right-side w-1/2 h-full flex flex-col gap-[1rem] items-start pl-[2%] pr-[5%] pointer-events-auto">
                      <MiddleTimelineBox
                         className="second-timeline-box-tab mt-[25rem] transform scale-125 origin-left"
                         title="25th March"
@@ -417,14 +423,14 @@ const Timeline = () => {
             </div>
           </div>
           {/*Mobile View*/}
-          <div className='relative max-w-[48rem] h-[100vh] md:hidden   justify-center '>
+          <div className='relative max-w-[48rem] h-[920px] md:hidden   justify-center '>
               <PacmanPathMobileSVG 
-                className_svg="mobile-svg absolute  md:hidden left-[10px] max-w-1/7 h-[917px] transform scale-90 origin-top-left stroke-green-600" 
-                className_path=" w-[100%]  flex flex-col items-center justify-center  h-[1200px] stroke-green-600" 
+                className_svg="mobile-svg absolute  md:hidden left-[10px] max-w-1/7 h-[920px] transform scale-90 origin-top-left stroke-green-600" 
+                className_path=" w-[100%]  flex flex-col items-center justify-center  h-[920px] stroke-green-600" 
                 pathId="path-mobile"
                 pacmanClass="pattern-rect-mobile"
               />
-               <div className="z-10 absolute  flex flex-col gap-[2.5rem] w-full h-[1600px] md:hidden font-['SF_Pixelate']">
+               <div className="z-10 absolute  flex flex-col gap-[2.5rem] w-full h-[920px] md:hidden font-['SF_Pixelate']">
                    {timeline.map((item, index) => (
                          <div key={index} className="relative left-[60px] w-[calc(100%-80px)]">
                             <MiddleTimelineBox

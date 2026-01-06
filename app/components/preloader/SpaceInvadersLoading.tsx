@@ -78,7 +78,14 @@ const SpaceInvadersLoading: React.FC<SpaceInvadersLoadingProps> = ({ onLoadingCo
         };
         updateDimensions();
         window.addEventListener('resize', updateDimensions);
-        return () => window.removeEventListener('resize', updateDimensions);
+
+        // Scroll Lock
+        document.body.style.overflow = 'hidden';
+
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+            document.body.style.overflow = 'auto';
+        };
     }, []);
 
     const isNarrow = dimensions.width < 768;
@@ -318,13 +325,13 @@ const SpaceInvadersLoading: React.FC<SpaceInvadersLoadingProps> = ({ onLoadingCo
                         setShowYouWon(true);
                     }
 
-                    if (youWonTimer === 420) {
+                    if (youWonTimer === 120) {
                         // --- TRANSITION WIPE #3: From Game Win -> Main App ---
                         // Making it exactly like Wipe 2: Trigger transition, wait for coverage, then exit.
                         onTransitionChange(true);
                     }
 
-                    if (youWonTimer === 510) { // ~1.5s later at 60fps
+                    if (youWonTimer === 210) { // ~1.5s later at 60fps
                         if (onLoadingComplete) {
                             onLoadingComplete();
                             setIsLoading(false);
