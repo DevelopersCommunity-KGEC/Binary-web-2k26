@@ -184,7 +184,7 @@ const Timeline = () => {
                   start: "top 20%",
                   end: "bottom bottom",
                   scrub: 1,
-                  markers: true,
+                  markers: false,
               },
           });
       }
