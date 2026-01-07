@@ -1,12 +1,12 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 "use client"
-=======
+// =======
 "use client";
 
 import { useState } from "react";
 import SpaceInvadersLoading from "./components/preloader/SpaceInvadersLoading";
 import PixelTransition from "./components/preloader/PixelTransition";
->>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d
+// >>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d
 
 // import Gallary from "./components/gallery/Index";
 import ScrollFlipCard from "./components/ScrollFlipCard";
@@ -14,16 +14,16 @@ import Tracks from "./components/Tracks";
 import Mentors from "./components/Mentors";
 import Timeline from "./components/Timeline";
 import AboutSection from "./components/AboutSection";
-<<<<<<< HEAD
-import { motion } from "motion/react";
+// <<<<<<< HEAD
+import { motion } from "framer-motion";
 import ScrollGallery from "./components/horizontal-gallery";
-=======
+// =======
 import Navbar from "./components/Navbar";
 import FAQs from "./components/Faq";
 import Footer from "./components/Footer";
 import CommunityPartners from "./components/CommunityPartners";
 import Sponsors from "./components/Sponsors";
->>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d
+// >>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -46,7 +46,7 @@ export default function Home() {
       <div className="min-h-screen bg-black text-white relative">
         <PixelTransition isActive={transitionActive} />
 
-<<<<<<< HEAD
+{/* <<<<<<< HEAD */}
       <ScrollFlipCard />      
       <Timeline />
 
@@ -66,7 +66,7 @@ export default function Home() {
       </motion.div>
 
             
-=======
+{/* ======= */}
         {isLoading ? (
           <SpaceInvadersLoading
             onLoadingComplete={handleLoadingComplete}
@@ -83,7 +83,7 @@ export default function Home() {
             <Tracks />
             <Mentors />
             <Timeline />
-            <Gallary />
+            <ScrollGallery />
             <Sponsors />
             <CommunityPartners />
             <FAQs />
@@ -91,7 +91,7 @@ export default function Home() {
           </>
         )}
       </div>
->>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d
+{/* >>>>>>> 68d825ce06db9ccf3ae3874eb72fef3863d58f1d */}
     </>
   );
 }
