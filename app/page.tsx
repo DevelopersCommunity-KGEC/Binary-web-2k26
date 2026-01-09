@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="min-h-screen bg-black text-white relative">
+      <div className="min-h-screen text-white relative">
         <PixelTransition isActive={transitionActive} />
 
         {isLoading ? (
@@ -55,7 +55,7 @@ export default function Home() {
           <>
             <Navbar />
             {/* <ScrollFlipCard /> */}
-            <Hero heroTopRef={heroTopRef}/>
+            <Hero heroTopRef={heroTopRef} />
             <AboutSection />
             <Timeline />
             <Tracks />

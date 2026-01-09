@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 // import BinaryText from "../Animations/BinaryText";
 import PageSection from '../hooks/PageSection';
-import { useScroll, motion } from 'framer-motion';
+// import { useScroll, motion } from 'framer-motion';
 import { useRef } from 'react';
 import { timeline } from '../constants/timeline';
 import gsap from 'gsap';
@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 import PacmanPathSVG from './PacmanPathSVG';
 // import useTextScramble from "../Animations/text";
 // import { useInView } from 'react-intersection-observer';
+
 
 
 
