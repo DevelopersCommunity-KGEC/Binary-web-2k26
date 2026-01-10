@@ -121,7 +121,7 @@ const Navbar = () => {
                                     className="h-10 w-auto object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center">
+                            {/* <a href="#" className="flex items-center">
                                 <NextImage
                                     src="/assets/IEEE_kolkata.png"
                                     alt="IEEE Kolkata Logo"
@@ -129,7 +129,7 @@ const Navbar = () => {
                                     height={50}
                                     className="h-10 w-auto object-contain"
                                 />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div className="hidden md:block">
