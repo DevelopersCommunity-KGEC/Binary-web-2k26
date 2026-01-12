@@ -1,6 +1,7 @@
 "use client";
 import { Key, useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
+// import Image from "next/image";
 import Image from "next/image";
 import ArcadeHeader from "../ui/ArcadeHeader";
 import { useTransform, useScroll, motion } from "framer-motion";
