@@ -70,7 +70,7 @@ const Tracks = () => {
                                     <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
                                         {track.icon}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-100">{track.title}</h3>
+                                    <h3 className="text-2xl text-center font-bold text-gray-100">{track.title}</h3>
                                 </div>
                             }
                             secondContent={

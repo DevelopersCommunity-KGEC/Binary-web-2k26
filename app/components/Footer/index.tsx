@@ -73,11 +73,11 @@ const Footer: React.FC = () => {
         </a>
       </nav> */}
 
-      <div className="flex justify-center space-x-5">
+      <div className="flex justify-center items-center space-x-5">
         <a href="https://www.instagram.com/binary.kgec/" target="_blank" rel="noopener noreferrer">
           {/* <svg
             className="h-7 w-7 fill-green-600 hover:fill-white"
-            aria-hidden="true"
+            aria-hidden="true"z
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
         </a>
         <a href="https://t.me/binarykgec" target="_blank" rel="noopener noreferrer">
           <svg
-            className="h-7 w-7 fill-green-600 hover:fill-white"
+            className="h-10 w-10 fill-green-600 hover:fill-white"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">
