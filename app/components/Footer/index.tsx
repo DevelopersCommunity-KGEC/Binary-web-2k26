@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
         <a href="https://www.instagram.com/binary.kgec/" target="_blank" rel="noopener noreferrer">
           {/* <svg
             className="h-7 w-7 fill-green-600 hover:fill-white"
-            aria-hidden="true"
+            aria-hidden="true"z
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

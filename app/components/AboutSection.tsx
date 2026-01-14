@@ -67,8 +67,7 @@ const About = () => {
 
   return (
     <PageSection id="about">
-      <main className=" ">
-        <div className="mt-[96px] md:mt-[116px]">
+        <div className="mt-10">
           <div className="my-2 mb-8 md:text-[3rem]">
             <ArcadeHeader text="About Binary" />
           </div>
@@ -117,7 +116,6 @@ const About = () => {
             </div>
           </div>
         </div>
-      </main>
     </PageSection>
   );
 };

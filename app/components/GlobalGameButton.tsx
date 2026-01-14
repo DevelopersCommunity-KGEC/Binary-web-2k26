@@ -1,8 +1,9 @@
 "use client";
 
+// testing commit
 import React, { useState } from 'react';
 import { Gamepad2 } from 'lucide-react';
-import SpaceInvadersGame from './SpaceInvadersGame';
+import SpaceInvadersGame from './SpaceInvaders';
 import TetrisGame from './TetrisGame';
 
 const GlobalGameButton = () => {
@@ -10,13 +11,14 @@ const GlobalGameButton = () => {
     const [viewState, setViewState] = useState<'closed' | 'menu' | 'space_invaders' | 'tetris'>('closed');
 
     const handleClose = () => setViewState('closed');
+    const handleBack = () => setViewState('menu');
 
     return (
         <>
             {viewState === 'closed' && (
                 <button
                     onClick={() => setViewState('menu')}
-                    className="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-[100] bg-green-500 hover:bg-green-600 text-black p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 hover:scale-110 active:scale-95 group"
+                    className="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-100 bg-green-500 hover:bg-green-600 text-black p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 hover:scale-110 active:scale-95 group"
                     title="Play Games"
                 >
                     <Gamepad2 className="w-6 h-6 md:w-8 md:h-8 group-hover:rotate-12 transition-transform duration-300" />
@@ -24,7 +26,7 @@ const GlobalGameButton = () => {
             )}
 
             {viewState === 'menu' && (
-                <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-100 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
                     {/* Close Menu Mask/Button */}
                     <div className="absolute inset-0" onClick={handleClose} />
 
@@ -62,8 +64,8 @@ const GlobalGameButton = () => {
                 </div>
             )}
 
-            {viewState === 'space_invaders' && <SpaceInvadersGame onClose={handleClose} />}
-            {viewState === 'tetris' && <TetrisGame onClose={handleClose} />}
+            {viewState === 'space_invaders' && <SpaceInvadersGame onClose={handleClose} onBack={handleBack} />}
+            {viewState === 'tetris' && <TetrisGame onClose={handleClose} onBack={handleBack} />}
         </>
     );
 };

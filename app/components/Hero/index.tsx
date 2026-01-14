@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Clock from './Clock';
 
 import { Pixelify_Sans } from "next/font/google";
-import SpaceInvadersGame from '../SpaceInvadersGame';
+import SpaceInvadersGame from '../SpaceInvaders';
 import { Gamepad2 } from 'lucide-react';
 
 const pixelifySans = Pixelify_Sans({
@@ -70,7 +70,7 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
 
             <div className="mx-auto mt-16 flex flex-col gap-8 md:mt-0 md:flex-row">
               <div className="mt-4 flex w-full items-center justify-center md:mt-0 md:w-1/2">
-                <div className="b mx-auto flex h-10 w-64 animate-bounce items-center justify-center md:h-[50px] md:animate-none">
+                <div className="b mx-auto flex h-10 w-64 animate-bounce items-center justify-center md:h-12.5 md:animate-none">
                   <Link
                     href="https://binaryvtwo.devfolio.co/"
                     target="_blank"
@@ -78,12 +78,12 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                   >
                     <PixelTransition
                       firstContent={
-                        <div className={`flex justify-center items-center font-lg font-bold h-full w-full text-center text-white text-xl transform cursor-pointer overflow-hidden rounded-xl bg-opacity-50 bg-gradient-to-br from-green-950/40 to-green-700/40 shadow-[0_0_15px_rgba(34,197,94,0.8)] backdrop-blur-sm backdrop-filter transition duration-300 ease-out md:h-[50px] ${pixelifySans.className}`}>
+                        <div className={`flex justify-center items-center font-lg font-bold h-full w-full text-center text-white text-xl transform cursor-pointer overflow-hidden rounded-xl bg-opacity-50 bg-linear-to-br from-green-950/40 to-green-700/40 shadow-[0_0_15px_rgba(34,197,94,0.8)] backdrop-blur-sm backdrop-filter transition duration-300 ease-out md:h-12.5 ${pixelifySans.className}`}>
                           Register Now!
                         </div>
                       }
                       secondContent={
-                        <div className={`flex justify-center items-center font-lg font-bold h-full w-full text-center text-black text-xl transform cursor-pointer overflow-hidden rounded-xl bg-green-500 shadow-[0_0_25px_rgba(34,197,94,1)] backdrop-blur-sm backdrop-filter transition duration-300 ease-out md:h-[50px] ${pixelifySans.className}`}>
+                        <div className={`flex justify-center items-center font-lg font-bold h-full w-full text-center text-black text-xl transform cursor-pointer overflow-hidden rounded-xl bg-green-500 shadow-[0_0_25px_rgba(34,197,94,1)] backdrop-blur-sm backdrop-filter transition duration-300 ease-out md:h-12.5 ${pixelifySans.className}`}>
                           Register Now!
                         </div>
                       }
@@ -96,7 +96,7 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                 </div>
               </div>
               <div className="flex w-full items-center justify-center md:w-1/2">
-                <div className={`b relative mx-auto flex h-10 w-64 items-center justify-center md:h-[50px] text-xl ${pixelifySans.className}`}>
+                <div className={`b relative mx-auto flex h-10 w-64 items-center justify-center md:h-12.5 text-xl ${pixelifySans.className}`}>
                   <a
                     href="http://discord.gg/yKcMYeMMe8"
                     target='_blank'
@@ -104,7 +104,7 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                   >
                     <PixelTransition
                       firstContent={
-                        <div className="flex justify-center items-center font-md w-full h-full text-center text-white transform cursor-pointer rounded-xl border-2 border-green-700 bg-transparent shadow-md shadow-green-700 transition duration-300 ease-out md:h-[50px]">
+                        <div className="flex justify-center items-center font-md w-full h-full text-center text-white transform cursor-pointer rounded-xl border-2 border-green-700 bg-transparent shadow-md shadow-green-700 transition duration-300 ease-out md:h-12.5">
                           <span className="mr-4">
                             <svg
                               className="h-7 w-7 fill-white"
@@ -119,7 +119,7 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                         </div>
                       }
                       secondContent={
-                        <div className="flex justify-center items-center font-md w-full h-full text-center text-black transform cursor-pointer rounded-xl border-2 border-green-700 bg-green-500 shadow-md shadow-green-700 transition duration-300 ease-out md:h-[50px]">
+                        <div className="flex justify-center items-center font-md w-full h-full text-center text-black transform cursor-pointer rounded-xl border-2 border-green-700 bg-green-500 shadow-md shadow-green-700 transition duration-300 ease-out md:h-12.5">
                           <span className="mr-4">
                             <svg
                               className="h-7 w-7 fill-black"

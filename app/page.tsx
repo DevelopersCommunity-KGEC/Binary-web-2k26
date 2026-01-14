@@ -24,6 +24,7 @@ import { useInView } from 'react-intersection-observer';
 export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [transitionActive, setTransitionActive] = useState<boolean>(false);
+  const [showContent, setShowContent] = useState<boolean>(false); // New State
 
   const [heroTopRef] = useInView({
     threshold: 0.5,
@@ -31,21 +32,27 @@ export default function Home() {
     initialInView: true,
   });
 
-  // When loading finishes, we wait a moment for the exit transition to be solid
   const handleLoadingComplete = () => {
-    // Adding 0.2s delay before loading content as requested
+    // 1. The loading bar finishes.
+    // 2. We wait 200ms as requested.
     setTimeout(() => {
+      // 3. Switch from Loading Screen to the Transition Overlay
       setIsLoading(false);
-      // After switching to HelloWorld, we reveal it by clearing the transition
+      setShowContent(true); 
+
+      // 4. At this point, transitionActive is still TRUE.
+      // The pixels are fully covering the screen.
+      // We wait for the pixels to start their "closed" animation (reveal).
       setTimeout(() => {
         setTransitionActive(false);
-      }, 500);
+      }, 100); // Small buffer to ensure content is mounted before reveal starts
     }, 200);
   };
 
   return (
     <>
       <div className="min-h-screen text-white relative overflow-x-hidden">
+        {/* The transition overlay always stays on top while active */}
         <PixelTransition isActive={transitionActive} />
 
         {isLoading ? (
@@ -54,11 +61,10 @@ export default function Home() {
             onTransitionChange={setTransitionActive}
           />
         ) : (
-          <>
+          /* Wrap content in a div that handles its own entry if needed */
+          <div className={`transition-opacity duration-500 ${transitionActive ? 'opacity-0' : 'opacity-100'}`}>
             <Navbar />
-            {/* <ScrollFlipCard /> */}
             <Hero heroTopRef={heroTopRef} />
-            {/* <TetrisInterface /> */}
             <AboutSection />
             <Timeline />
             <Tracks />
@@ -69,7 +75,7 @@ export default function Home() {
             <FAQs />
             <Footer />
             <GlobalGameButton />
-          </>
+          </div>
         )}
       </div>
     </>

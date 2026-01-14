@@ -10,7 +10,7 @@ const anim: Variants = {
     open: (i: number) => ({
         opacity: 1,
         transition: {
-            duration: 0.4,
+            duration: 0.3,
             delay: 0.06 * i,
             ease: [0.89, 1, 0.5, 1] // Accelerating in for the cover
         }
@@ -18,7 +18,7 @@ const anim: Variants = {
     closed: (i: number) => ({
         opacity: 0,
         transition: {
-            duration: 0.4,
+            duration: 0.3,
             delay: 0.03 * i,
             ease: [0.5, 1, 0.89, 1] // Decelerated out for the reveal
         }
