@@ -261,85 +261,16 @@ const Mentors = () => {
             </div>
 
             {/* Header */}
-                <div className="mx-auto max-w-2xl text-center filter select-none pointer-events-none">
-                    <div className="mb-10">
-                        <ArcadeHeader text="Mentors" />
-                    </div>
+            <div className="mx-auto max-w-2xl text-center filter select-none pointer-events-none">
+                <div className="mb-10">
+                    <ArcadeHeader text="Mentors" />
                 </div>
+            </div>
 
-            <div className="relative mx-auto max-w-7xl px-4">
-
-                {/* Header
-                <div className="mx-auto max-w-2xl text-center filter blur-sm select-none pointer-events-none">
-                    <div className="mb-10">
-                        <ArcadeHeader text="Mentors" />
-                    </div>
-                </div> */}
-
-                {/* Overlay */}
-                <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/60 rounded-3xl border border-white/10">
-                    <p className={`text-4xl md:text-6xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
-                        Coming Soon!
-                    </p>
-                </div>
-
-                {/* Team marquee - Slower animations */}
-                {/* Desktop Layout - Vertical Columns */}
-                <div className="mt-0 hidden md:flex justify-center gap-20 max-h-[800px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] filter blur-sm select-none pointer-events-none">
-                    <div className="hidden lg:block">
-                        <Marquee pauseOnHover vertical className="[--duration:45s]">
-                            {firstColumn.map((member) => (
-                                <TeamMemberCard
-                                    key={member.name}
-                                    {...member}
-                                    highlightDirection="tr-bl"
-                                    onClick={() => handleCardClick(member)}
-                                />
-                            ))}
-                        </Marquee>
-                    </div>
-
-                    <div className="hidden md:block">
-                        <Marquee reverse pauseOnHover vertical className="[--duration:45s]">
-                            {secondColumn.map((member) => (
-                                <TeamMemberCard
-                                    key={member.name}
-                                    {...member}
-                                    highlightDirection="tl-br"
-                                    onClick={() => handleCardClick(member)}
-                                />
-                            ))}
-                        </Marquee>
-                    </div>
-
-                    <div>
-                        <Marquee pauseOnHover vertical className="[--duration:45s]">
-                            {thirdColumn.map((member) => (
-                                <TeamMemberCard
-                                    key={member.name}
-                                    {...member}
-                                    highlightDirection="tr-bl"
-                                    onClick={() => handleCardClick(member)}
-                                />
-                            ))}
-                        </Marquee>
-                    </div>
-                </div>
-
-                {/* Mobile Layout - Horizontal Marquee */}
-                <div className="mt-10 md:hidden block overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] filter blur-sm select-none pointer-events-none">
-                    <Marquee pauseOnHover className="[--duration:45s]">
-                        {teamMembers.map((member) => (
-                            <div key={member.name} className="px-4">
-                                <TeamMemberCard
-                                    {...member}
-                                    highlightDirection="tr-bl"
-                                    onClick={() => handleCardClick(member)}
-                                />
-                            </div>
-                        ))}
-                    </Marquee>
-                </div>
+            <div className="flex items-center justify-center min-h-[400px]">
+                <p className={`text-4xl md:text-6xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
+                    Coming Soon!
+                </p>
             </div>
 
             {/* Popup Modal */}

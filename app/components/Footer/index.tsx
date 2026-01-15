@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
       </Link></div> */}
       <hr className="my-8 ml-20 mr-20 border-[0.5px] border-[#092b0b]" />
       <p className="py-4 text-center font-medium text-white/60">
-        &copy; {new Date().getFullYear()} Binary. All rights reserved.
+        <span className='absolute text-5xl left-163 bottom-0'>&copy;</span>{new Date().getFullYear()} Binary. All rights reserved.
       </p>
     </footer>
   );
