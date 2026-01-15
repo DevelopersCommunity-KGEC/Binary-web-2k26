@@ -31,8 +31,8 @@ const Sponsors = () => {
       className={isMobile ? `min-h-fit` : ""}
     >
       <section className="flex flex-col font-pixelate text-white mt-28 min-h-[50vh]">
-        <div className="flex flex-col h-full flex-grow">
-          <div className="mb-1">
+        <div className="flex flex-col h-full grow">
+          <div className="">
             <ArcadeHeader text="Sponsors" />
           </div>
 
@@ -102,7 +102,7 @@ const Sponsors = () => {
           );
         })} */}
 
-          <div className="flex flex-grow items-center justify-center">
+          <div className="flex grow items-center justify-center">
             <p className={`text-4xl md:text-6xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
               Coming Soon!
             </p>

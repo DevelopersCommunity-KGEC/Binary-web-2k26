@@ -43,6 +43,7 @@ export default function RootLayout({
                     {/* <div className={`scanline`} /> */}
                     <SmoothScroll>{children}</SmoothScroll>
                 </div>
+                <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
             </body>
         </html>
     );

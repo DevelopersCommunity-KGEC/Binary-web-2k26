@@ -77,7 +77,7 @@ const CommunityPartners = () => {
           <ArcadeHeader text="Community Partners" />
         </div>
 
-        <div className="flex flex-grow items-center justify-center">
+        <div className="flex flex-grow mt-20 items-center justify-center">
           <p className={`text-4xl md:text-6xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
             Coming Soon!
           </p>

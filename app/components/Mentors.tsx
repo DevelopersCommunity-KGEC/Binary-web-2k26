@@ -262,12 +262,12 @@ const Mentors = () => {
 
             {/* Header */}
             <div className="mx-auto max-w-2xl text-center filter select-none pointer-events-none">
-                <div className="mb-10">
+                <div className="mb-11">
                     <ArcadeHeader text="Mentors" />
                 </div>
             </div>
 
-            <div className="flex items-center justify-center min-h-[400px]">
+            <div className="flex items-center justify-center min-h-20 md:min-h-50">
                 <p className={`text-4xl md:text-6xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
                     Coming Soon!
                 </p>

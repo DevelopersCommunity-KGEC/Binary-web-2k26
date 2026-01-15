@@ -71,7 +71,7 @@ export default function ScrollGallery() {
 
   return (
     <section id="gallery" className={styles.main}>
-      <div className="mb-2">
+      <div className="mb-16">
         <ArcadeHeader text="Gallery" />
       </div>
       <div

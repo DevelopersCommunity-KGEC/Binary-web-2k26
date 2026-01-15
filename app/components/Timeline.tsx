@@ -152,8 +152,9 @@ const Timeline = () => {
       ) as SVGPathElement;
       const mobilePacman = document.querySelector(".pattern-rect-mobile");
       const mobileSvg = document.querySelector(".mobile-svg");
+      const mobileContainer = document.querySelector(".mobile-timeline-container");
 
-      if (mobilePath && mobilePacman && mobileSvg) {
+      if (mobilePath && mobilePacman && mobileContainer) {
         const length = mobilePath.getTotalLength();
         gsap.set(mobilePath, { strokeDasharray: 10 });
 
@@ -165,10 +166,10 @@ const Timeline = () => {
             duration: 10,
             ease: "none",
             scrollTrigger: {
-              trigger: mobileSvg,
-              start: "top 20%",
-              end: "bottom 80%",
-              scrub: 3,
+              trigger: mobileContainer,
+              start: "top center",
+              end: "bottom center",
+              scrub: 1,
             },
           }
         );
@@ -187,10 +188,10 @@ const Timeline = () => {
           immediateRender: true,
           ease: "none",
           scrollTrigger: {
-            trigger: mobileSvg,
-            start: "top 20%",
-            end: "bottom 80%",
-            scrub: 3,
+            trigger: mobileContainer,
+            start: "top center",
+            end: "bottom center",
+            scrub: 1,
             markers: false,
           },
         });
@@ -262,23 +263,28 @@ const Timeline = () => {
       });
 
       // Mobile (Phone) Timeline Box Animations
-      const mobileTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".mobile-svg",
-          start: "top 20%",
-          end: "bottom 80%",
-          scrub: 3,
-        },
-      });
-
       const mobileBoxes = gsap.utils.toArray(".mobile-timeline-box");
       if (mobileBoxes.length > 0) {
-        mobileBoxes.forEach((box: any) => {
-          mobileTl.fromTo(
+        mobileBoxes.forEach((box: any, index: number) => {
+          const totalBoxes = mobileBoxes.length;
+          const startProgress = index / totalBoxes;
+          const endProgress = (index + 0.5) / totalBoxes;
+
+          gsap.fromTo(
             box,
             { x: 50, opacity: 0 },
-            { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
-            ">-.5"
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ".mobile-timeline-container",
+                start: `top+=${startProgress * 100}% center`,
+                end: `top+=${endProgress * 100}% center`,
+                scrub: 1,
+              },
+            }
           );
         });
       }
@@ -289,7 +295,7 @@ const Timeline = () => {
 
   return (
     <PageSection id="timeline">
-      <div className="my-2 mb-8 md:text-[3rem]">
+      <div className="my-3 mb-8 md:text-[3rem]">
         <ArcadeHeader text="Timeline" />
       </div>
       <div className="mb-0" ref={containerRef}>
@@ -312,18 +318,19 @@ const Timeline = () => {
               <div className="left-side w-1/2 h-full flex flex-col gap-4 items-end pr-[10%]">
                 <MiddleTimelineBox
                   className="first-timeline-box mb-10 mt-40"
-                  title="3rd March"
-                  subtitle="Registration Start"
+                  title="13th Febraury"
+                  subtitle="Registration End"
                 />
                 <MiddleTimelineBox
                   className="third-timeline-box mt-14"
-                  title="16th-26th March"
-                  subtitle="Approvals Roll out"
+                  title="7th March"
+                  subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box mt-14"
-                  title="30th March"
-                  subtitle="Submission of Projects"
+                  title="8th March"
+                  subtitle="Hackathon Ends"
+                  
                 />
               </div>
 
@@ -331,18 +338,18 @@ const Timeline = () => {
               <div className="right-side w-1/2 h-full flex flex-col gap-4 items-start pl-[10%]">
                 <MiddleTimelineBox
                   className="second-timeline-box mt-12"
-                  title="25th March"
-                  subtitle="Registration End"
+                  title="6th January"
+                  subtitle="Registration Start"
                 />
                 <MiddleTimelineBox
                   className="fourth-timeline-box mt-24"
-                  title="29th March"
-                  subtitle="Hackathon Starts"
+                  title="To be Announced"
+                  subtitle="Approvals Roll out"
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box mt-28"
-                  title="30th March"
-                  subtitle="Hackathon Ends"
+                  title="8th March"
+                  subtitle="Submission of Projects"
                 />
               </div>
             </div>
@@ -367,17 +374,17 @@ const Timeline = () => {
               <div className="left-side w-1/2 h-full flex flex-col mt-20 pl-[5%] gap-20 items-end pr-[2%] pointer-events-auto">
                 <MiddleTimelineBox
                   className="first-timeline-box-tab mb-5 mt-28 transform scale-125 pl-[%] origin-right"
-                  title="3rd March"
-                  subtitle="Registration Start"
+                  title="6th January"
+                  subtitle="Registration Starts"
                 />
                 <MiddleTimelineBox
                   className="third-timeline-box-tab mt-60 transform scale-125 pl-[12%] origin-right"
-                  title="16th-26th March"
+                  title="To be Announced"
                   subtitle="Approvals Roll out"
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box-tab mt-80 transform scale-125 pl-[12%] origin-right"
-                  title="30th March"
+                  title="8th March"
                   subtitle="Submission of Projects"
                 />
               </div>
@@ -386,31 +393,31 @@ const Timeline = () => {
               <div className="right-side w-1/2 h-full flex flex-col gap-4 items-start pl-[2%] pr-[5%] pointer-events-auto">
                 <MiddleTimelineBox
                   className="second-timeline-box-tab mt-100 transform scale-125 origin-left"
-                  title="25th March"
+                  title="13th February"
                   subtitle="Registration End"
                 />
                 <MiddleTimelineBox
                   className="fourth-timeline-box-tab mt-100 transform scale-125 origin-left"
-                  title="29th March"
+                  title="7th March"
                   subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box-tab mt-88 transform scale-125 origin-left"
-                  title="30th March"
+                  title="8th March"
                   subtitle="Hackathon Ends"
                 />
               </div>
             </div>
           </div>
           {/*Mobile View*/}
-          <div className="relative max-w-3xl h-215 md:hidden   justify-center ">
+          <div className="mobile-timeline-container relative max-w-3xl h-190 md:hidden   justify-center ">
             <PacmanPathMobileSVG
               className_svg="mobile-svg absolute  md:hidden left-[10px] max-w-1/7 h-[1020px] transform scale-90 origin-top-left stroke-green-600"
               className_path=" w-[100%]  flex flex-col items-center justify-center  h-[920px] stroke-green-600"
               pathId="path-mobile"
               pacmanClass="pattern-rect-mobile"
             />
-            <div className="z-10 absolute  flex flex-col gap-10 w-full h-230 md:hidden font-sf-pixelate">
+            <div className="z-10 absolute  flex flex-col gap-5 justify-center w-full h-190 md:hidden font-sf-pixelate pt-5 pb-5">
               {timeline.map((item, index) => (
                 <div
                   key={index}

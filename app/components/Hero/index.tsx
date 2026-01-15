@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import PageSection from '../../hooks/PageSection';
 import PixelTransition from '../PixelTransition';
 import Image from 'next/image';
@@ -29,6 +29,17 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
   const glitchClockEnabled = true; // Enable glitch clock only on non-mobile devices
 
   const [showGame, setShowGame] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apply.devfolio.co/v2/sdk.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -93,6 +104,12 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                       className="w-full h-full rounded-xl overflow-hidden"
                     />
                   </Link>
+                  {/* <div
+                    className="apply-button"
+                    data-hackathon-slug="binaryvtwo"
+                    data-button-theme="dark"
+                    style={{ height: '44px', width: '312px' }}
+                  ></div> */}
                 </div>
               </div>
               <div className="flex w-full items-center justify-center md:w-1/2">

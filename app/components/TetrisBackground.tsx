@@ -193,7 +193,7 @@ const TetrisBackground = () => {
 
             // Target number of simultaneous falling pieces based on width
             // e.g. 1 piece every 10 columns
-            const targetPieces = Math.max(3, Math.floor(cols / 8));
+            const targetPieces = Math.max(1, Math.floor(cols / 16));
 
             if (dropCounter > STEP_DELAY) {
                 // Update existing pieces
