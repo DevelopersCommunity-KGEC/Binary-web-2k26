@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-// import Slider from 'react-slick';
+import Slider from 'react-slick';
 import { communityPartnersItems } from "@/app/constants/communityPartners";
 import Image from "next/image";
 import PageSection from "@/app/hooks/PageSection";
-import BinaryText from "../Animations/BinaryText";
 import ArcadeHeader from "../ui/ArcadeHeader";
 import styled from "styled-components";
 // import { CustomNextArrow, CustomPrevArrow } from '../Mentors';
@@ -38,9 +37,9 @@ const MemberComponent: React.FC<MemberComponentProps> = ({
   imageUrl = "",
 }) => {
   // ensure proper public path (leading slash required)
-  const src = imageUrl?.toString().startsWith("/")
-    ? imageUrl.toString()
-    : `/${imageUrl}`;
+  // const src = imageUrl?.toString().startsWith("/")
+  //   ? imageUrl.toString()
+  //   : `/${imageUrl}`;
 
   return (
     <a
@@ -50,7 +49,7 @@ const MemberComponent: React.FC<MemberComponentProps> = ({
       className="flex justify-center items-center"
     >
       <Image
-        src={src}
+        src={imageUrl}
         alt="Community Partner"
         width={500}
         height={500}
@@ -61,23 +60,125 @@ const MemberComponent: React.FC<MemberComponentProps> = ({
 };
 
 const CommunityPartners = () => {
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const isMobile = useMediaQuery("(max-width: 767px)")
+
+    const sliderSettings = {
+        autoplay: true,
+        autoplaySpeed: 1500,
+        pauseOnHover: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+
+        nextArrow: <></>,
+        prevArrow: <></>,
+
+        responsive: [
+            {
+                breakpoint: 2224,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 680,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
 
   return (
-    <PageSection
-      id="community-partners"
-      className={isMobile ? `min-h-fit` : ""}
-    >
-      <Section className="flex flex-col min-h-[50vh]">
-        <div className="mt-[36px] md:mt-[64px] mb-12">
-          <ArcadeHeader text="Community Partners" />
-        </div>
+    <PageSection id="community-partners" className={isMobile ? `min-h-fit` : ''}>
+            <Section>
+        
+            <div className="flex flex-col h-full">
+          <div className="mb-12">
+            <ArcadeHeader text="Community Partners" />
+          </div>
+          </div>
+                {isMobile ? (
+                    <div className="mx-auto mt-20 md:mt-10">
+                        <Slider
+                            {...sliderSettings}
+                            className="ml-8 mr-8 flex items-center justify-center lg:ml-[4%] lg:mr-[4%]"
+                        >
+                            {communityPartnersItems.map((item, index) => (
+                                <MemberComponent url={item.url} imageUrl={item.imageUrl} key={index} />
 
-        <div className="flex items-center justify-center min-h-20 md:min-h-50">
+                            ))}
+
+                        </Slider>
+                    </div>
+                ) : (
+                    <div className='grid grid-cols-12 gap-6'>
+                        {communityPartnersItems.map((item, index) => {
+                            const lastRow = communityPartnersItems.length % 4;
+                            if (lastRow === 0 || index < (communityPartnersItems.length - lastRow)) {
+                                return (
+                                    <span className='col-span-3' key={index}>
+                                        <MemberComponent
+                                            url={item.url}
+                                            imageUrl={item.imageUrl} />
+                                    </span>
+                                )
+                            }
+                            else if (index >= (communityPartnersItems.length - lastRow)) {
+                                if (lastRow === 1) {
+                                    return (
+                                        <span className='col-span-12' key={index}>
+                                            <MemberComponent
+                                                url={item.url}
+                                                imageUrl={item.imageUrl} />
+                                        </span>
+                                    )
+                                }
+                                else if (lastRow === 2) {
+                                    return (
+                                        <span className='col-span-6' key={index}>
+                                            <MemberComponent
+                                                url={item.url}
+                                                imageUrl={item.imageUrl} />
+                                        </span>
+                                    )
+                                }
+                                else if (lastRow === 3) {
+                                    return (
+                                        <span className='col-span-4' key={index}>
+                                            <MemberComponent
+                                                url={item.url}
+                                                imageUrl={item.imageUrl} />
+                                        </span>
+                                    )
+                                }
+                            }
+                        }
+                        )}
+                    </div>
+                )}
+
+        {/* <div className="flex items-center justify-center min-h-20 md:min-h-50">
           <p className={`text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
             Coming Soon!
           </p>
-        </div>
+        </div> */}
       </Section>
     </PageSection>
   );
