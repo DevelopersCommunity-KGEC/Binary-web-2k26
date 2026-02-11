@@ -39,7 +39,7 @@ const Sponsors = () => {
               </p>
             </div> */}
 
-          {sponsors.map((sponsorItem) => {
+          {/* {sponsors.map((sponsorItem) => {
           console.log(sponsorItem, 'dfkn');
 
           let gridClass = "grid w-[calc(80vw)] gap-4 rounded-lg bg-black/5 p-5 md:w-[calc(60vw)]";
@@ -97,13 +97,13 @@ const Sponsors = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
 
-          {/* <div className="flex items-center justify-center min-h-20 md:min-h-50">
+          <div className="flex items-center justify-center min-h-20 md:min-h-50">
             <p className={`text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
               Coming Soon!
             </p>
-          </div> */}
+          </div>
         </div>
       </section>
     </PageSection>

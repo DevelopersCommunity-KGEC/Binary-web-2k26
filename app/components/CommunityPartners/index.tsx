@@ -21,8 +21,8 @@ import "swiper/css/autoplay";
 import { pixelifySans } from '@/app/utils/pixelifySans.utils';
 
 interface MemberComponentProps {
-  url: string;
-  imageUrl: string; // use string for public folder paths
+    url: string;
+    imageUrl: string; // use string for public folder paths
 }
 
 const Section = styled.section<{ theme: { body: string } }>`
@@ -33,34 +33,34 @@ const Section = styled.section<{ theme: { body: string } }>`
 `;
 
 const MemberComponent: React.FC<MemberComponentProps> = ({
-  url = "",
-  imageUrl = "",
+    url = "",
+    imageUrl = "",
 }) => {
-  // ensure proper public path (leading slash required)
-  // const src = imageUrl?.toString().startsWith("/")
-  //   ? imageUrl.toString()
-  //   : `/${imageUrl}`;
+    // ensure proper public path (leading slash required)
+    // const src = imageUrl?.toString().startsWith("/")
+    //   ? imageUrl.toString()
+    //   : `/${imageUrl}`;
 
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex justify-center items-center"
-    >
-      <Image
-        src={imageUrl}
-        alt="Community Partner"
-        width={500}
-        height={500}
-        className="w-64 h-28 sm:w-64 sm:h-36 object-contain drop-shadow-[0_5px_10px_rgba(14,180,32,0.5)]"
-      />
-    </a>
-  );
+    return (
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center"
+        >
+            <Image
+                src={imageUrl}
+                alt="Community Partner"
+                width={500}
+                height={500}
+                className="w-64 h-28 sm:w-64 sm:h-36 object-contain drop-shadow-[0_5px_10px_rgba(14,180,32,0.5)]"
+            />
+        </a>
+    );
 };
 
 const CommunityPartners = () => {
-  const isMobile = useMediaQuery("(max-width: 767px)")
+    const isMobile = useMediaQuery("(max-width: 767px)")
 
     const sliderSettings = {
         autoplay: true,
@@ -105,16 +105,16 @@ const CommunityPartners = () => {
         ],
     };
 
-  return (
-    <PageSection id="community-partners" className={isMobile ? `min-h-fit` : ''}>
+    return (
+        <PageSection id="community-partners" className={isMobile ? `min-h-fit` : ''}>
             <Section>
-        
-            <div className="flex flex-col h-full">
-          <div className="mb-12">
-            <ArcadeHeader text="Community Partners" />
-          </div>
-          </div>
-                {isMobile ? (
+
+                <div className="flex flex-col h-full">
+                    <div className="mb-12">
+                        <ArcadeHeader text="Community Partners" />
+                    </div>
+                </div>
+                {/* {isMobile ? (
                     <div className="mx-auto mt-20 md:mt-10">
                         <Slider
                             {...sliderSettings}
@@ -172,16 +172,16 @@ const CommunityPartners = () => {
                         }
                         )}
                     </div>
-                )}
+                )} */}
 
-        {/* <div className="flex items-center justify-center min-h-20 md:min-h-50">
-          <p className={`text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
-            Coming Soon!
-          </p>
-        </div> */}
-      </Section>
-    </PageSection>
-  );
+                <div className="flex items-center justify-center min-h-20 md:min-h-50">
+                    <p className={`text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
+                        Coming Soon!
+                    </p>
+                </div>
+            </Section>
+        </PageSection>
+    );
 };
 
 export default CommunityPartners;
