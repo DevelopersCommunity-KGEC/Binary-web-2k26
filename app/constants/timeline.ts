@@ -6,7 +6,7 @@ export const timeline = [
   },
   {
     title: "Registration End",
-    date: "13th February",
+    date: "7th February",
     description: "Registration End",
   },
   {
@@ -16,17 +16,17 @@ export const timeline = [
   },
   {
     title: "Hackathon Starts",
-    date: "7th March",
+    date: "21st March",
     description: "Hackathon Starts",
   },
   {
     title: "Hackathon Ends",
-    date: "8th March",
+    date: "22nd March",
     description: "Hackathon Ends",
   },
   {
     title: "Submission of Projects",
-    date: "8th March",
+    date: "22nd March",
     description: "Submission of Projects",
   },
 ];

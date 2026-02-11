@@ -318,17 +318,17 @@ const Timeline = () => {
               <div className="left-side w-1/2 h-full flex flex-col gap-4 items-end pr-[10%]">
                 <MiddleTimelineBox
                   className="first-timeline-box mb-10 mt-32 scale-90 origin-right"
-                  title="13th Febraury"
+                  title="7th March"
                   subtitle="Registration End"
                 />
                 <MiddleTimelineBox
                   className="third-timeline-box mt-4 scale-90 origin-right"
-                  title="7th March"
+                  title="21st March"
                   subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box mt-4 scale-90 origin-right"
-                  title="8th March"
+                  title="22nd March"
                   subtitle="Hackathon Ends"
 
                 />
@@ -348,7 +348,7 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box mt-20 scale-90 origin-left"
-                  title="8th March"
+                  title="22nd March"
                   subtitle="Submission of Projects"
                 />
               </div>
@@ -384,7 +384,7 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box-tab mt-80 origin-right"
-                  title="8th March"
+                  title="22nd March"
                   subtitle="Submission of Projects"
                 />
               </div>
@@ -393,17 +393,17 @@ const Timeline = () => {
               <div className="right-side w-3/5 h-full flex flex-col gap-4 items-start pl-[2%] pr-[5%] pointer-events-auto">
                 <MiddleTimelineBox
                   className="second-timeline-box-tab mt-100 origin-left"
-                  title="13th February"
+                  title="7th February"
                   subtitle="Registration End"
                 />
                 <MiddleTimelineBox
                   className="fourth-timeline-box-tab mt-100 origin-left"
-                  title="7th March"
+                  title="21st March"
                   subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box-tab mt-88 origin-left"
-                  title="8th March"
+                  title="22nd March"
                   subtitle="Hackathon Ends"
                 />
               </div>
