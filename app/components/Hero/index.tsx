@@ -5,7 +5,7 @@ import Image from 'next/image';
 // import { motion } from 'framer-motion';
 // import { useMemo } from 'react';
 // import { useMediaQuery } from '../../hooks/useMediaQuery';
-import Clock from './Clock';
+import Clock from '../Clock';
 
 import SpaceInvadersGame from '../SpaceInvaders';
 import { Gamepad2 } from 'lucide-react';
@@ -19,10 +19,10 @@ import TetrisBackground from '../TetrisBackground';
 
 const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) => void }) => {
   // const isMobile = useMediaQuery("(max-width: 767px)")
-  const hackathonStartTime = "2025-03-29T11:30:00";
-  const hackathonEndTime = "2025-03-30T14:00:00";   // March 30, 2025 2:00 PM
+  const hackathonStartTime = "2026-03-21T09:00:00"; // March 21, 2026 09:00 AM
+  const hackathonEndTime = "2026-03-22T16:00:00";   // March 22, 2026 4:00 PM
 
-  const glitchClockEnabled = true; // Enable glitch clock only on non-mobile devices
+  const glitchClockEnabled = false; // Enable glitch clock only on non-mobile devices
 
   const [showGame, setShowGame] = useState(false);
 
@@ -155,11 +155,11 @@ const Hero = ({ heroTopRef }: { heroTopRef: (node?: Element | null | undefined) 
                 </div>
               </div>
             </div>
-            {/* <Clock
+            <Clock
               enableGlitchClock={glitchClockEnabled}
               startTime={hackathonStartTime}
               endTime={hackathonEndTime}
-            /> */}
+            />
           </div>
         </PageSection>
       </div>

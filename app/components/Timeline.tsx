@@ -323,12 +323,12 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="third-timeline-box mt-4 scale-90 origin-right"
-                  title="21st March"
+                  title="21st March 09:00 AM"
                   subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box mt-4 scale-90 origin-right"
-                  title="22nd March"
+                  title="22nd March 04:00 PM"
                   subtitle="Hackathon Ends"
 
                 />
@@ -343,12 +343,12 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="fourth-timeline-box mt-16 scale-90 origin-left"
-                  title="To be Announced"
+                  title="8th March - 14th March"
                   subtitle="Approvals Roll out"
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box mt-20 scale-90 origin-left"
-                  title="22nd March"
+                  title="22nd March 04:00 PM"
                   subtitle="Submission of Projects"
                 />
               </div>
@@ -379,12 +379,12 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="third-timeline-box-tab mt-60 origin-right"
-                  title="To be Announced"
+                  title="8th March - 14th March"
                   subtitle="Approvals Roll out"
                 />
                 <MiddleTimelineBox
                   className="fifth-timeline-box-tab mt-80 origin-right"
-                  title="22nd March"
+                  title="22nd March 04:00 PM"
                   subtitle="Submission of Projects"
                 />
               </div>
@@ -398,12 +398,12 @@ const Timeline = () => {
                 />
                 <MiddleTimelineBox
                   className="fourth-timeline-box-tab mt-100 origin-left"
-                  title="21st March"
+                  title="21st March 09:00 AM"
                   subtitle="Hackathon Starts"
                 />
                 <MiddleTimelineBox
                   className="sixth-timeline-box-tab mt-88 origin-left"
-                  title="22nd March"
+                  title="22nd March 04:00 PM"
                   subtitle="Hackathon Ends"
                 />
               </div>

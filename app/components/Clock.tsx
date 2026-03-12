@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import FlipClockCountdown from '@leenguyen/react-flip-clock-countdown';
 import '@leenguyen/react-flip-clock-countdown/dist/index.css';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 interface ClockProps {
     enableGlitchClock?: boolean;

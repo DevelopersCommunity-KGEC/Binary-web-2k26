@@ -69,7 +69,8 @@ export default function Home() {
             <Timeline />
             <Tracks />
             <Gallary />
-            <Mentors />
+            {/* <Mentors title="Judges" />
+            <Mentors title="Mentors" /> */}
             <Sponsors />
             <CommunityPartners />
             <FAQs />

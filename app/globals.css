@@ -97,6 +97,27 @@
   }
 
   --animate-flicker: flicker 2.5s infinite;
+
+  --color-neon: #00ff41;
+  --color-neon-dim: #00cc33;
+  --color-neon-glow: rgba(0, 255, 65, 0.3);
+  --color-dark-bg: #0a0f0a;
+  --color-dark-card: #111c11;
+  --color-dark-surface: #0d1a0d;
+  --color-green-text: #8aff8a;
+  --color-green-muted: #4a7a4a;
+  --color-border: #1a3a1a;
+
+  --font-pixel: var(--pixelify-sans), cursive;
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 8px var(--color-neon-glow), inset 0 0 8px rgba(0, 255, 65, 0.05);
+    }
+    50% {
+      box-shadow: 0 0 20px var(--color-neon-glow), inset 0 0 12px rgba(0, 255, 65, 0.1);
+    }
+  }
 }
 
 .scanline {
