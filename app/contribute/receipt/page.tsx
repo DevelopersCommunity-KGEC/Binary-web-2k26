@@ -84,6 +84,19 @@ export default function ReceiptLookupPage() {
           </Link>
         </div>
 
+        <div className="mt-16 w-full max-w-lg text-center">
+          <h1
+            className="font-pixel text-neon font-bold text-2xl md:text-3xl mb-4"
+            style={{ textShadow: '0 0 20px rgba(0,255,65,0.3), 0 0 60px rgba(0,255,65,0.15)' }}
+          >
+            Service Unavailable
+          </h1>
+          <p className="text-green-muted font-pixel text-sm">
+            The receipt lookup service is temporarily disabled.
+          </p>
+        </div>
+
+        {/* 
         <div className="mt-16 w-full max-w-lg">
           <h1
             className="font-pixel text-neon font-bold text-2xl md:text-4xl mb-4 text-center"
@@ -98,7 +111,6 @@ export default function ReceiptLookupPage() {
             Search by the name you used during payment to find and download your invoice.
           </p>
 
-          {/* Search Form */}
           <form onSubmit={handleSearch} className="flex gap-3 mb-8">
             <input
               type="text"
@@ -116,14 +128,12 @@ export default function ReceiptLookupPage() {
             </button>
           </form>
 
-          {/* Error */}
           {error && (
             <div className="p-3 border border-red-500/30 rounded-lg bg-red-500/5 text-center mb-6">
               <p className="font-pixel text-red-400 text-sm">{error}</p>
             </div>
           )}
 
-          {/* Results */}
           {searched && !error && results.length === 0 && (
             <div className="p-6 border border-border rounded-xl bg-dark-card text-center">
               <p className="font-pixel text-green-muted text-sm">
@@ -178,6 +188,7 @@ export default function ReceiptLookupPage() {
             </div>
           )}
         </div>
+        */}
       </div>
     </div>
   );

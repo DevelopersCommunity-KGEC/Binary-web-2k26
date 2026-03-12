@@ -1,145 +1,145 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+// import { useState, useCallback } from 'react';
 import Link from 'next/link';
 
-declare global {
-  interface Window {
-    Razorpay: new (options: RazorpayOptions) => RazorpayInstance;
-  }
-}
-
-interface RazorpayOptions {
-  key: string;
-  amount: number;
-  currency: string;
-  name: string;
-  description: string;
-  order_id: string;
-  handler: (response: RazorpayResponse) => void;
-  prefill: { name: string };
-  theme: { color: string };
-  modal?: { ondismiss?: () => void };
-}
-
-interface RazorpayInstance {
-  open: () => void;
-}
-
-interface RazorpayResponse {
-  razorpay_order_id: string;
-  razorpay_payment_id: string;
-  razorpay_signature: string;
-}
-
-function loadRazorpayScript(): Promise<boolean> {
-  return new Promise((resolve) => {
-    if (document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]')) {
-      resolve(true);
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-    script.onload = () => resolve(true);
-    script.onerror = () => resolve(false);
-    document.body.appendChild(script);
-  });
-}
+// declare global {
+//   interface Window {
+//     Razorpay: new (options: RazorpayOptions) => RazorpayInstance;
+//   }
+// }
+// 
+// interface RazorpayOptions {
+//   key: string;
+//   amount: number;
+//   currency: string;
+//   name: string;
+//   description: string;
+//   order_id: string;
+//   handler: (response: RazorpayResponse) => void;
+//   prefill: { name: string };
+//   theme: { color: string };
+//   modal?: { ondismiss?: () => void };
+// }
+// 
+// interface RazorpayInstance {
+//   open: () => void;
+// }
+// 
+// interface RazorpayResponse {
+//   razorpay_order_id: string;
+//   razorpay_payment_id: string;
+//   razorpay_signature: string;
+// }
+// 
+// function loadRazorpayScript(): Promise<boolean> {
+//   return new Promise((resolve) => {
+//     if (document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]')) {
+//       resolve(true);
+//       return;
+//     }
+//     const script = document.createElement('script');
+//     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+//     script.onload = () => resolve(true);
+//     script.onerror = () => resolve(false);
+//     document.body.appendChild(script);
+//   });
+// }
 
 export default function ContributePage() {
-  const [name, setName] = useState('');
-  const [yearOfPassing, setYearOfPassing] = useState('');
-  const [amount, setAmount] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
-  const [paidOrderId, setPaidOrderId] = useState('');
-
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      setLoading(true);
-      setStatus('idle');
-      setMessage('');
-
-      try {
-        // Load Razorpay script
-        const loaded = await loadRazorpayScript();
-        if (!loaded) {
-          throw new Error('Failed to load Razorpay SDK. Check your internet connection.');
-        }
-
-        // Create order
-        const orderRes = await fetch('/api/create-order', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            yearOfPassing: Number(yearOfPassing),
-            amount: Number(amount),
-          }),
-        });
-
-        const orderData = await orderRes.json();
-        if (!orderRes.ok) throw new Error(orderData.error || 'Failed to create order');
-
-        // Open Razorpay checkout
-        const options: RazorpayOptions = {
-          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-          amount: Number(amount) * 100,
-          currency: 'INR',
-          name: 'Binary - KGEC',
-          description: `Contribution by ${name}`,
-          order_id: orderData.orderId,
-          handler: async (response: RazorpayResponse) => {
-            try {
-              const verifyRes = await fetch('/api/verify-payment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_signature: response.razorpay_signature,
-                }),
-              });
-
-              const verifyData = await verifyRes.json();
-              if (verifyData.success) {
-                setStatus('success');
-                setMessage('Payment successful! Thank you for supporting Binary 🎉');
-                setPaidOrderId(response.razorpay_order_id);
-                setName('');
-                setYearOfPassing('');
-                setAmount('');
-              } else {
-                setStatus('error');
-                setMessage('Payment verification failed. Please contact support.');
-              }
-            } catch {
-              setStatus('error');
-              setMessage('Something went wrong during verification.');
-            }
-            setLoading(false);
-          },
-          prefill: { name },
-          theme: { color: '#00ff41' },
-          modal: {
-            ondismiss: () => {
-              setLoading(false);
-            },
-          },
-        };
-
-        const rzp = new window.Razorpay(options);
-        rzp.open();
-      } catch (err: unknown) {
-        setLoading(false);
-        setStatus('error');
-        setMessage(err instanceof Error ? err.message : 'Something went wrong');
-      }
-    },
-    [name, yearOfPassing, amount]
-  );
+//   const [name, setName] = useState('');
+//   const [yearOfPassing, setYearOfPassing] = useState('');
+//   const [amount, setAmount] = useState('');
+//   const [loading, setLoading] = useState(false);
+//   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+//   const [message, setMessage] = useState('');
+//   const [paidOrderId, setPaidOrderId] = useState('');
+// 
+//   const handleSubmit = useCallback(
+//     async (e: React.FormEvent) => {
+//       e.preventDefault();
+//       setLoading(true);
+//       setStatus('idle');
+//       setMessage('');
+// 
+//       try {
+//         // Load Razorpay script
+//         const loaded = await loadRazorpayScript();
+//         if (!loaded) {
+//           throw new Error('Failed to load Razorpay SDK. Check your internet connection.');
+//         }
+// 
+//         // Create order
+//         const orderRes = await fetch('/api/create-order', {
+//           method: 'POST',
+//           headers: { 'Content-Type': 'application/json' },
+//           body: JSON.stringify({
+//             name,
+//             yearOfPassing: Number(yearOfPassing),
+//             amount: Number(amount),
+//           }),
+//         });
+// 
+//         const orderData = await orderRes.json();
+//         if (!orderRes.ok) throw new Error(orderData.error || 'Failed to create order');
+// 
+//         // Open Razorpay checkout
+//         const options: RazorpayOptions = {
+//           key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+//           amount: Number(amount) * 100,
+//           currency: 'INR',
+//           name: 'Binary - KGEC',
+//           description: `Contribution by ${name}`,
+//           order_id: orderData.orderId,
+//           handler: async (response: RazorpayResponse) => {
+//             try {
+//               const verifyRes = await fetch('/api/verify-payment', {
+//                 method: 'POST',
+//                 headers: { 'Content-Type': 'application/json' },
+//                 body: JSON.stringify({
+//                   razorpay_order_id: response.razorpay_order_id,
+//                   razorpay_payment_id: response.razorpay_payment_id,
+//                   razorpay_signature: response.razorpay_signature,
+//                 }),
+//               });
+// 
+//               const verifyData = await verifyRes.json();
+//               if (verifyData.success) {
+//                 setStatus('success');
+//                 setMessage('Payment successful! Thank you for supporting Binary 🎉');
+//                 setPaidOrderId(response.razorpay_order_id);
+//                 setName('');
+//                 setYearOfPassing('');
+//                 setAmount('');
+//               } else {
+//                 setStatus('error');
+//                 setMessage('Payment verification failed. Please contact support.');
+//               }
+//             } catch {
+//               setStatus('error');
+//               setMessage('Something went wrong during verification.');
+//             }
+//             setLoading(false);
+//           },
+//           prefill: { name },
+//           theme: { color: '#00ff41' },
+//           modal: {
+//             ondismiss: () => {
+//               setLoading(false);
+//             },
+//           },
+//         };
+// 
+//         const rzp = new window.Razorpay(options);
+//         rzp.open();
+//       } catch (err: unknown) {
+//         setLoading(false);
+//         setStatus('error');
+//         setMessage(err instanceof Error ? err.message : 'Something went wrong');
+//       }
+//     },
+//     [name, yearOfPassing, amount]
+//   );
 
   return (
     <div className="relative min-h-screen bg-dark-bg">
@@ -179,7 +179,8 @@ export default function ContributePage() {
 
         <div className="w-16 h-[3px] bg-neon mx-auto mb-10 rounded-sm shadow-[0_0_12px_rgba(0,255,65,0.3)]" />
 
-        {/* Existing Razorpay form - temporarily disabled */}
+        {/* 
+        
         {false && (
           <>
             <form
@@ -189,7 +190,7 @@ export default function ContributePage() {
                 animation: 'pulse-glow 3s ease-in-out infinite',
               }}
             >
-              {/* Name */}
+              
               <div className="space-y-2">
                 <label htmlFor="name" className="block font-pixel text-green-text text-sm tracking-wide uppercase">
                   Name
@@ -205,7 +206,7 @@ export default function ContributePage() {
                 />
               </div>
 
-              {/* Year of Passing */}
+              
               <div className="space-y-2">
                 <label htmlFor="yearOfPassing" className="block font-pixel text-green-text text-sm tracking-wide uppercase">
                   Year of Passing
@@ -223,7 +224,7 @@ export default function ContributePage() {
                 />
               </div>
 
-              {/* Amount */}
+              
               <div className="space-y-2">
                 <label htmlFor="amount" className="block font-pixel text-green-text text-sm tracking-wide uppercase">
                   Amount (₹)
@@ -240,7 +241,7 @@ export default function ContributePage() {
                 />
               </div>
 
-              {/* Submit */}
+              
               <button
                 type="submit"
                 disabled={loading}
@@ -249,7 +250,7 @@ export default function ContributePage() {
                 {loading ? 'Processing...' : 'Pay Now'}
               </button>
 
-              {/* Status message */}
+              
               {status === 'success' && (
                 <div className="mt-4 p-4 border border-neon/30 rounded-lg bg-neon/5 text-center space-y-3">
                   <p className="font-pixel text-neon text-sm">{message}</p>
@@ -285,6 +286,7 @@ export default function ContributePage() {
             </Link>
           </>
         )}
+        */}
 
         {/* QR Code Section */}
         <div className="w-full max-w-md flex flex-col items-center space-y-6 bg-dark-card border border-border rounded-2xl p-8 shadow-[0_0_15px_rgba(0,255,65,0.1)]" style={{ animation: 'pulse-glow 3s ease-in-out infinite' }}>
