@@ -80,6 +80,7 @@ export default function Navbar() {
         { name: 'Timeline', path: '#timeline' },
         { name: 'Tracks', path: '#tracks' },
         { name: 'Gallery', path: '#gallery' },
+        { name: 'Judges', path: '#judges' },
         { name: 'Mentors', path: '#mentors' },
         { name: 'Sponsors', path: '#sponsors' },
         { name: 'Community', path: '#community-partners' },
@@ -115,23 +116,23 @@ export default function Navbar() {
                 if (el) {
                     return {
                         id: item.path,
-                        offset: Math.abs(el.getBoundingClientRect().top - 100)
+                        top: el.getBoundingClientRect().top
                     };
                 }
                 return null;
-            }).filter((item): item is { id: string, offset: number } => item !== null);
+            }).filter((item): item is { id: string, top: number } => item !== null);
 
             if (entries.length === 0) return;
 
-            // Find section closest to top (100px offset)
-            const closest = entries.reduce((prev, curr) => {
-                return (prev.offset < curr.offset) ? prev : curr;
-            });
+            // Find the last section whose top has scrolled past the threshold (150px from top)
+            const threshold = 150;
+            const passedSections = entries.filter(e => e.top <= threshold);
 
-            if (closest.offset < window.innerHeight / 2) { // Only highlight if reasonably close/visible
-                setActiveSection(closest.id);
-                // Update active index based on the new active section
-                const newIndex = navItems.findIndex(item => item.path === closest.id);
+            if (passedSections.length > 0) {
+                // Pick the last one that crossed the threshold (closest to top from above)
+                const active = passedSections[passedSections.length - 1];
+                setActiveSection(active.id);
+                const newIndex = navItems.findIndex(item => item.path === active.id);
                 setActiveIndex(newIndex);
             }
 

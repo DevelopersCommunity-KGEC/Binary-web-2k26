@@ -99,8 +99,8 @@ const Sponsors = () => {
           );
         })} */}
 
-          <div className="flex items-center justify-center min-h-20 md:min-h-50">
-            <p className={`text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
+          <div className="w-full flex items-center justify-center py-20 md:py-32">
+            <p className={`text-center text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
               Coming Soon!
             </p>
           </div>

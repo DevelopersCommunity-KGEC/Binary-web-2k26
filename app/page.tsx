@@ -8,6 +8,7 @@ import Gallary from "./components/gallary";
 import ScrollFlipCard from "./components/ScrollFlipCard";
 import Tracks from "./components/Tracks";
 import Mentors from "./components/Mentors";
+import Judges from "./components/Judges";
 import Timeline from "./components/Timeline";
 import AboutSection from "./components/AboutSection";
 import Navbar from "./components/Navbar";
@@ -69,8 +70,8 @@ export default function Home() {
             <Timeline />
             <Tracks />
             <Gallary />
-            {/* <Mentors title="Judges" />
-            <Mentors title="Mentors" /> */}
+            <Judges />
+            <Mentors />
             <Sponsors />
             <CommunityPartners />
             <FAQs />
