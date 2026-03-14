@@ -129,8 +129,8 @@ export const tracks: Track[] = [
         color: '#22c55e',
     },
     {
-        title: 'Staler',
-        description: 'Special track for Staler. $100 for winner.',
+        title: 'Stellar',
+        description: 'Special track for Stellar. $100 for winner.',
         icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
         totalPrice: '$100',
         color: '#22c55e',
@@ -143,8 +143,8 @@ export const tracks: Track[] = [
         color: '#22c55e',
     },
     {
-        title: 'Requstly',
-        description: 'Special track for Requstly. $50 for winner.',
+        title: 'Requestly',
+        description: 'Special track for Requestly. $50 for winner.',
         icon: React.createElement(FaTools, { size: 52, className: "text-green-500" }),
         totalPrice: '$50',
         color: '#22c55e',

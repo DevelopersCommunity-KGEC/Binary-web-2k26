@@ -104,7 +104,7 @@ export const judges = [
     {
         name: 'Sarnavo saha sardar',
         imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773411432/WhatsApp_Image_2026-03-13_at_19.44.01_zdjoe5.jpg',
-        position: 'Chef, avaxteam1',
+        position: 'India Lead, Avalanche Team1',
         linkedinUrl: 'https://www.linkedin.com/in/sarnavo/',
     },
 ];
