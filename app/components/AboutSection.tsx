@@ -67,11 +67,11 @@ const About = () => {
         <div className="mb-12 md:text-[3rem]">
           <ArcadeHeader text="About Binary" />
         </div>
-        <div className="grid w-full grid-cols-1 gap-16 md:grid-cols-8">
-          <div className={`order-2 flex flex-col items-start justify-start md:order-1 md:col-span-5 ${pixelifySans.className}`}>
+        <div className="flex flex-col lg:flex-row w-full gap-16 items-center justify-between">
+          <div className={`order-2 lg:order-1 flex-[1.6] flex flex-col items-center lg:items-start justify-start text-center lg:text-left ${pixelifySans.className}`}>
             <h2 className="mb-4 font-bold text-3xl uppercase text-green-400">
               {' '}
-              hi everyone
+              hi everyone 
             </h2>
             <p className="text-xl font-bold text-white">
               {/* about binary content */}
@@ -87,7 +87,7 @@ const About = () => {
               College.
             </p>
           </div>
-          <div className="order-1 flex h-max items-center justify-center gap-4 md:order-2 md:col-span-3">
+          <div className="order-1 lg:order-2 flex-1 flex h-max items-center justify-center gap-4">
             <span className="item-center flex justify-center">
               {/* <Image
                 // src='binarylogo.png'

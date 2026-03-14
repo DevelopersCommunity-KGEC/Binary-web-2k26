@@ -1,0 +1,137 @@
+.team-card {
+  position: relative;
+  cursor: pointer;
+  /* Remove overflow: hidden to allow corners to peek out */
+  overflow: visible; 
+  width: 18rem; /* Equivalent to w-72 */
+  height: 24rem; /* Equivalent to h-96 */
+  margin: 10px auto; /* Add margin to prevent overlapping in marquee */
+}
+
+.team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  display: block;
+  filter: grayscale(100%);
+  transition: 0.5s ease;
+}
+
+.team-card:hover img {
+  filter: grayscale(0%);
+}
+
+.team-card-corner {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  transition: 0.3s ease;
+  z-index: 20; /* Ensure they are above the image and overlay */
+  pointer-events: none;
+}
+
+.team-card-corner.top-left {
+  top: -8px;
+  left: -8px;
+  border-top: 4px solid #4ade80;
+  border-left: 4px solid #4ade80;
+}
+
+.team-card-corner.bottom-right {
+  bottom: -8px;
+  right: -8px;
+  border-bottom: 4px solid #22c55e;
+  border-right: 4px solid #22c55e;
+}
+
+.team-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(67, 67, 67, 0.2),
+    rgba(8, 8, 8, 0.9)
+  );
+  pointer-events: none; /* Let events pass to the image */
+}
+
+/* Specific content handling */
+.team-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  padding: 1.8rem 1.2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.team-card-content h3 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+.team-card:hover .team-card-content h3 {
+    color: #4ade80; /* text-green-400 */
+}
+
+.team-card-content p {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.team-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+}
+
+.team-card:hover .team-socials {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.team-socials a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem; /* w-6 h-6 */
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-socials a:hover {
+  color: #4ade80; /* text-green-400 */
+}
+
+/* Pause Marquee animations on hover, fallback for tailwind group-hover arbitrary variants */
+.group:hover .animate-marquee,
+.group:hover .animate-marquee-vertical,
+.group:hover .animate-marquee-vertical-reverse {
+  animation-play-state: paused !important;
+}

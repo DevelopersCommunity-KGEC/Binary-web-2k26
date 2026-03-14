@@ -1,28 +1,18 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Slider from 'react-slick';
+import React from "react";
 import { communityPartnersItems } from "@/app/constants/communityPartners";
 import Image from "next/image";
 import PageSection from "@/app/hooks/PageSection";
 import ArcadeHeader from "../ui/ArcadeHeader";
 import styled from "styled-components";
-// import { CustomNextArrow, CustomPrevArrow } from '../Mentors';
-
-import { StaticImageData } from "next/image";
 import { useMediaQuery } from "@/app/hooks/useMediaQuery";
-
-// Swiper imports (replaces react-slick)
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
-
-import { pixelifySans } from '@/app/utils/pixelifySans.utils';
+import Marquee from "react-fast-marquee";
 
 interface MemberComponentProps {
     url: string;
-    imageUrl: string; // use string for public folder paths
+    imageUrl: string;
+    isSmall?: boolean;
 }
 
 const Section = styled.section<{ theme: { body: string } }>`
@@ -35,12 +25,8 @@ const Section = styled.section<{ theme: { body: string } }>`
 const MemberComponent: React.FC<MemberComponentProps> = ({
     url = "",
     imageUrl = "",
+    isSmall = false,
 }) => {
-    // ensure proper public path (leading slash required)
-    // const src = imageUrl?.toString().startsWith("/")
-    //   ? imageUrl.toString()
-    //   : `/${imageUrl}`;
-
     return (
         <a
             href={url}
@@ -53,132 +39,82 @@ const MemberComponent: React.FC<MemberComponentProps> = ({
                 alt="Community Partner"
                 width={500}
                 height={500}
-                className="w-64 h-28 sm:w-64 sm:h-36 object-contain drop-shadow-[0_5px_10px_rgba(14,180,32,0.5)]"
+                className={`w-48 h-24 sm:w-64 sm:h-32 md:w-80 md:h-40 object-contain drop-shadow-[0_5px_10px_rgba(14,180,32,0.5)] transition-transform duration-300 ${isSmall ? 'scale-75' : ''}`}
             />
         </a>
     );
 };
 
 const CommunityPartners = () => {
-    const isMobile = useMediaQuery("(max-width: 767px)")
+    const isMobile = useMediaQuery("(max-width: 767px)");
 
-    const sliderSettings = {
-        autoplay: true,
-        autoplaySpeed: 1500,
-        pauseOnHover: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-
-        nextArrow: <></>,
-        prevArrow: <></>,
-
-        responsive: [
-            {
-                breakpoint: 2224,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 1100,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 900,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 680,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    // Split items into two rows for marquee
+    const midpoint = Math.ceil(communityPartnersItems.length / 2);
+    const row1 = communityPartnersItems.slice(0, midpoint);
+    const row2 = communityPartnersItems.slice(midpoint);
 
     return (
         <PageSection id="community-partners" className={isMobile ? `min-h-fit` : ''}>
             <Section>
-
                 <div className="flex flex-col h-full">
                     <div className="mb-12">
                         <ArcadeHeader text="Community Partners" />
                     </div>
                 </div>
-                {/* {isMobile ? (
-                    <div className="mx-auto mt-20 md:mt-10">
-                        <Slider
-                            {...sliderSettings}
-                            className="ml-8 mr-8 flex items-center justify-center lg:ml-[4%] lg:mr-[4%]"
+
+                {isMobile ? (
+                    // Mobile: two marquee rows going opposite directions
+                    <div className="w-full flex flex-col gap-6 pb-10">
+                        <Marquee
+                            gradient={false}
+                            speed={40}
+                            pauseOnHover={true}
+                            direction="left"
                         >
-                            {communityPartnersItems.map((item, index) => (
-                                <MemberComponent url={item.url} imageUrl={item.imageUrl} key={index} />
-
-                            ))}
-
-                        </Slider>
-                    </div>
-                ) : (
-                    <div className='grid grid-cols-12 gap-6'>
-                        {communityPartnersItems.map((item, index) => {
-                            const lastRow = communityPartnersItems.length % 4;
-                            if (lastRow === 0 || index < (communityPartnersItems.length - lastRow)) {
-                                return (
-                                    <span className='col-span-3' key={index}>
+                            <div className="flex flex-row gap-8 items-center px-4">
+                                {row1.map((item, index) => (
+                                    <div key={index} className="flex-shrink-0">
                                         <MemberComponent
                                             url={item.url}
-                                            imageUrl={item.imageUrl} />
-                                    </span>
-                                )
-                            }
-                            else if (index >= (communityPartnersItems.length - lastRow)) {
-                                if (lastRow === 1) {
-                                    return (
-                                        <span className='col-span-12' key={index}>
-                                            <MemberComponent
-                                                url={item.url}
-                                                imageUrl={item.imageUrl} />
-                                        </span>
-                                    )
-                                }
-                                else if (lastRow === 2) {
-                                    return (
-                                        <span className='col-span-6' key={index}>
-                                            <MemberComponent
-                                                url={item.url}
-                                                imageUrl={item.imageUrl} />
-                                        </span>
-                                    )
-                                }
-                                else if (lastRow === 3) {
-                                    return (
-                                        <span className='col-span-4' key={index}>
-                                            <MemberComponent
-                                                url={item.url}
-                                                imageUrl={item.imageUrl} />
-                                        </span>
-                                    )
-                                }
-                            }
-                        }
-                        )}
+                                            imageUrl={item.imageUrl}
+                                            isSmall={(item as any).isSmall}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </Marquee>
+                        <Marquee
+                            gradient={false}
+                            speed={40}
+                            pauseOnHover={true}
+                            direction="right"
+                        >
+                            <div className="flex flex-row gap-8 items-center px-4">
+                                {row2.map((item, index) => (
+                                    <div key={index} className="flex-shrink-0">
+                                        <MemberComponent
+                                            url={item.url}
+                                            imageUrl={item.imageUrl}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </Marquee>
                     </div>
-                )} */}
-
-                <div className="w-full flex items-center justify-center py-20 md:py-32">
-                    <p className={`text-center text-4xl md:text-4xl font-bold text-white uppercase tracking-widest ${pixelifySans.className}`}>
-                        Coming Soon!
-                    </p>
-                </div>
+                ) : (
+                    // Desktop: 4 logos in a row
+                    <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen grid grid-cols-4 gap-y-12 gap-x-6 px-12 pb-16">
+                        {communityPartnersItems.map((item, index) => (
+                            <div className="flex justify-center items-center" key={index}>
+                                <MemberComponent
+                                    url={item.url}
+                                    imageUrl={item.imageUrl}
+                                    isSmall={(item as any).isSmall}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </Section>
         </PageSection>
     );
