@@ -40,7 +40,7 @@ export function Marquee({
                             "animate-marquee flex-row": !vertical && !reverse,
                             "animate-marquee-vertical flex-col": vertical && !reverse,
                             "animate-marquee-vertical-reverse flex-col": vertical && reverse,
-                            "[animation-direction:reverse] flex-row": !vertical && reverse,
+                            "animate-marquee-reverse flex-row": !vertical && reverse,
                             "group-hover:[animation-play-state:paused]": pauseOnHover,
                         })}
                     >

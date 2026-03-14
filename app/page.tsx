@@ -7,8 +7,7 @@ import PixelTransition from "./components/preloader/PixelTransition";
 import Gallary from "./components/gallary";
 import ScrollFlipCard from "./components/ScrollFlipCard";
 import Tracks from "./components/Tracks";
-import Mentors from "./components/Mentors";
-import Judges from "./components/Judges";
+import JudgesAndMentors from "./components/JudgesAndMentors";
 import Timeline from "./components/Timeline";
 import AboutSection from "./components/AboutSection";
 import Navbar from "./components/Navbar";
@@ -70,8 +69,7 @@ export default function Home() {
             <Timeline />
             <Tracks />
             <Gallary />
-            <Judges />
-            <Mentors />
+            <JudgesAndMentors />
             <Sponsors />
             <CommunityPartners />
             <FAQs />

@@ -1,11 +1,11 @@
 "use client";
-import { useState } from 'react';
+import React from 'react';
 import { Marquee } from "./magicui/marquee";
 import ArcadeHeader from './ui/ArcadeHeader';
 import PageSection from '../hooks/PageSection';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { pixelifySans } from '@/app/utils/pixelifySans.utils';
 import { judges } from '../constants/judges';
+import { mentors } from '../constants/mentors';
 
 import './TeamCard.css';
 
@@ -41,33 +41,27 @@ const TeamMemberCard = ({ imageUrl, name, position, linkedinUrl }: any) => {
     );
 };
 
-const Judges = () => {
+const JudgesAndMentors = () => {
     const isMobile = useMediaQuery("(max-width: 767px)");
-
-    // Split for marquee lines
-    const third = Math.ceil(judges.length / 3);
-    const firstColumn = judges.slice(0, third);
-    const secondColumn = judges.slice(third, third * 2);
-    const thirdColumn = judges.slice(third * 2);
 
     return (
         <PageSection
-            id="judges"
+            id="judges-mentors"
             className={isMobile ? `min-h-fit` : ""}
         >
             <section className="relative overflow-hidden bg-black text-white pt-10 pb-20">
                 {/* Header */}
-                <div className="mx-auto max-w-2xl text-center filter select-none pointer-events-none mb-16">
-                    <ArcadeHeader text="Judges" />
+                <div className="mx-auto max-w-4xl text-center filter select-none pointer-events-none mb-16">
+                    <ArcadeHeader text="Judges & Mentors" />
                 </div>
 
-                {/* Team marquee - Slower animations */}
-                {/* Desktop Layout - Vertical Columns */}
-                <div className="mt-0 hidden md:flex justify-center gap-6 lg:gap-10 xl:gap-20 max-h-[800px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-                    <div className="hidden lg:block">
-                        <Marquee pauseOnHover vertical className="[--duration:45s]">
-                            {firstColumn.map((member) => (
-                                <div key={member.name} className="py-4">
+                {/* Team marquee - Horizontal Rows */}
+                <div className="flex flex-col gap-8 md:gap-12">
+                    {/* Judges Row */}
+                    <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                        <Marquee pauseOnHover className="[--duration:50s]">
+                            {judges.map((member) => (
+                                <div key={member.name} className="px-4">
                                     <TeamMemberCard
                                         {...member}
                                         highlightDirection="tr-bl"
@@ -77,10 +71,11 @@ const Judges = () => {
                         </Marquee>
                     </div>
 
-                    <div className="hidden md:block">
-                        <Marquee reverse pauseOnHover vertical className="[--duration:45s]">
-                            {secondColumn.map((member) => (
-                                <div key={member.name} className="py-4">
+                    {/* Mentors Row */}
+                    <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+                        <Marquee reverse pauseOnHover className="[--duration:50s]">
+                            {mentors.map((member) => (
+                                <div key={member.name} className="px-4">
                                     <TeamMemberCard
                                         {...member}
                                         highlightDirection="tl-br"
@@ -89,37 +84,10 @@ const Judges = () => {
                             ))}
                         </Marquee>
                     </div>
-
-                    <div>
-                        <Marquee pauseOnHover vertical className="[--duration:45s]">
-                            {thirdColumn.map((member) => (
-                                <div key={member.name} className="py-4">
-                                    <TeamMemberCard
-                                        {...member}
-                                        highlightDirection="tr-bl"
-                                    />
-                                </div>
-                            ))}
-                        </Marquee>
-                    </div>
-                </div>
-
-                {/* Mobile Layout - Horizontal Marquee */}
-                <div className="mt-10 md:hidden block overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-                    <Marquee pauseOnHover className="[--duration:45s]">
-                        {judges.map((member) => (
-                            <div key={member.name} className="px-4">
-                                <TeamMemberCard
-                                    {...member}
-                                    highlightDirection="tr-bl"
-                                />
-                            </div>
-                        ))}
-                    </Marquee>
                 </div>
             </section>
         </PageSection>
     );
 };
 
-export default Judges;
+export default JudgesAndMentors;

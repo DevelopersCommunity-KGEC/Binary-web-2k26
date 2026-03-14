@@ -24,8 +24,8 @@ export const navItems = [
     link: '#gallery',
   },
   {
-    name: 'Mentors',
-    link: '#mentors',
+    name: 'Judges & Mentors',
+    link: '#judges-mentors',
   },
   {
     name: 'Sponsors',

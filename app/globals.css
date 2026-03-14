@@ -118,6 +118,11 @@
       box-shadow: 0 0 20px var(--color-neon-glow), inset 0 0 12px rgba(0, 255, 65, 0.1);
     }
   }
+
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-reverse: marquee var(--duration) linear infinite reverse;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse: marquee-vertical var(--duration) linear infinite reverse;
 }
 
 .scanline {
@@ -207,12 +212,20 @@ div {
   }
 }
 
-.animate-marquee {
+@utility animate-marquee {
   animation: marquee var(--duration) linear infinite;
 }
 
-.animate-marquee-vertical {
+@utility animate-marquee-reverse {
+  animation: marquee var(--duration) linear infinite reverse;
+}
+
+@utility animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
+}
+
+@utility animate-marquee-vertical-reverse {
+  animation: marquee-vertical var(--duration) linear infinite reverse;
 }
 
 .animate-marquee-vertical-reverse {
