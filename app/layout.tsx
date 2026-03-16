@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Press_Start_2P, Pixelify_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Press_Start_2P, Pixelify_Sans, Play } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
@@ -21,6 +21,12 @@ const geistMono = Geist_Mono({
 const pressStart2P = Press_Start_2P({
     weight: "400",
     variable: "--font-press-start-2p",
+    subsets: ["latin"],
+});
+
+const play = Play({
+    weight: ["400", "700"],
+    variable: "--font-play",
     subsets: ["latin"],
 });
 
@@ -92,7 +98,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} ${pixelify.variable} bg-black overflow-hidden`}>
+            <body className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} ${pixelify.variable} ${play.variable} bg-black overflow-hidden`}>
                 <div className="relative z-10 w-full h-full">
                     {/* <div className={`scanline`} /> */}
                     <SmoothScroll>{children}</SmoothScroll>

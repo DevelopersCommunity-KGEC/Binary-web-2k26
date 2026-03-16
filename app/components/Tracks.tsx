@@ -29,25 +29,30 @@ const Tracks = () => {
                                 }
                                 secondContent={
                                     <div
+                                        className="w-full h-full flex flex-col items-center justify-center p-6 gap-2 text-black text-center"
                                         style={{
-                                            width: "100%",
-                                            height: "100%",
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            alignItems: "center",
-                                            justifyContent: "center",
                                             backgroundColor: track.color,
-                                            padding: "1.5rem",
-                                            gap: "0.5rem"
                                         }}
                                     >
-                                        <p className="text-center font-bold text-sm text-black leading-tight">
-                                            {track.description}
-                                        </p>
+                                        <div className="font-bold text-[13px] whitespace-pre-line leading-snug" style={{ fontFamily: "var(--font-play), sans-serif" }}>
+                                            {track.description.split(/(https?:\/\/[^\s]+)/g).map((part, i) => 
+                                                part.match(/^https?:\/\//) ? (
+                                                    <a 
+                                                        key={i} 
+                                                        href={part} 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer"
+                                                        className="underline break-all hover:text-white/80 transition-colors"
+                                                    >
+                                                        {part}
+                                                    </a>
+                                                ) : part
+                                            )}
+                                        </div>
                                         {(track.totalPrice || track.cashPrice) && (
-                                            <div className="mt-2 text-center">
-                                                <p className="text-[10px] uppercase font-black text-black/60 leading-none">Prizes</p>
-                                                <p className="font-bold text-lg text-black">
+                                            <div className="mt-2 text-center" style={{ fontFamily: "var(--font-play), sans-serif" }}>
+                                                <p className="text-[10px] uppercase font-black opacity-60 leading-none">Prizes</p>
+                                                <p className="font-bold text-lg">
                                                     {track.totalPrice} {track.cashPrice ? `($${track.cashPrice} Cash)` : ''}
                                                 </p>
                                             </div>

@@ -30,67 +30,70 @@ export const tracks: Track[] = [
     {
         title: 'Education',
         description:
-            'Create innovative platforms and tools to revolutionize learning experiences and educational accessibility.',
+            'The Education Track empowers participants to develop cutting-edge solutions that enhance learning experiences and bridge educational gaps. Participants can create applications that offer personalized learning pathways, improve access to quality education for underserved communities, or facilitate seamless collaboration between teachers and students. This track is all about using technology to revolutionize education and make learning accessible to all.',
         icon: React.createElement(FaGraduationCap, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'Oxymoron',
-        winnerUrl: 'https://github.com/muskanagarwal-15/EduVox',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'Health',
         description:
-            'Build applications and systems to address healthcare challenges, patient care and medical technology.',
+            'The Health Track encourages participants to develop innovative solutions that improve healthcare accessibility and efficiency. Participants can create applications that assist in remote patient monitoring, enhance mental health support, streamline medical data management, or promote healthier lifestyles. This track is all about leveraging technology to make healthcare smarter, more inclusive, and impactful.',
         icon: React.createElement(FaHeartbeat, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'Dholakpur Warriors',
-        winnerUrl: 'https://github.com/parthib2004/learnlytic-assist',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'Web3',
-        description:
-            'Explore Blockchain, Decentralized Applications and the future of internet technologies.',
+        description: `Teams participating in the Web3 track must choose the following:
+
+1. Algorand Track – Build a Web3 solution on the Algorand ecosystem based on the official problem statement. Prize: $300 for the top 3 teams.
+`,
         icon: React.createElement(FaCubes, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
-        cashPrice: '3K',
-        winnerName: 'Warlocks',
-        winnerUrl: 'https://github.com/mansi0xc/Wizard-s-Gambit',
+        totalPrice: '',
+        cashPrice: '',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'AI/ML & CI',
-        description:
-            'Develop intelligent systems using AI, ML, and Computational Intelligence for efficient problem-solving. To be eligible for this track, teams must integrate Weights & Biases for model training, experiment tracking, and performance visualization.',
+        description: `
+Develop intelligent systems using AI, Machine Learning, or Computational Intelligence to solve real-world problems efficiently. Teams should focus on building innovative solutions that demonstrate effective model development, training, and performance evaluation.
+`,
         icon: React.createElement(FaRobot, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'ROME',
-        winnerUrl: 'https://github.com/asengupta07/RuinsOfRome',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'IOT',
         description:
-            'Design and prototype innovative IOT solutions, embedded systems and robotics.',
+            'The IoT Track challenges participants to develop innovative solutions that connect the physical and digital worlds. Participants can build smart home systems, optimize industrial processes, enhance healthcare monitoring, or create intelligent environmental sensors. This track is all about leveraging IoT technology to make systems smarter, more efficient, and interconnected.',
         icon: React.createElement(FaMicrochip, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'Quantum Quokkas',
-        winnerUrl: 'https://github.com/Arnab582004/Sign-language-detection-and-home-automation',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'Open Innovation',
         description:
-            'Create solutions for any problem statement of your choice using cutting-edge technologies.',
+            'The Open Innovation Track gives participants the freedom to think beyond boundaries and create solutions that address real-world challenges. Whether it’s developing groundbreaking applications, optimizing existing processes, or exploring unconventional ideas, this track is all about encouraging creativity, experimentation, and impactful problem-solving.',
         icon: React.createElement(FaLightbulb, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'Skull Crushers',
-        winnerUrl: 'https://github.com/SagnikBasak04/NeuralDetect',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
@@ -99,8 +102,8 @@ export const tracks: Track[] = [
         icon: React.createElement(FaUsers, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'HardCode',
-        winnerUrl: 'https://github.com/wraptalk/wraptalk',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
@@ -110,43 +113,48 @@ export const tracks: Track[] = [
         icon: React.createElement(FaStar, { size: 52, className: "text-green-500" }),
         totalPrice: '5K',
         cashPrice: '3K',
-        winnerName: 'D.TECHtors',
-        winnerUrl: 'https://github.com/Animeshghosh07/BINARY',
+        winnerName: '',
+        winnerUrl: '',
         color: '#22c55e',
     },
     {
         title: 'Duality',
-        description: 'Special track for Duality. $100 for winner.',
+        description: `The Duality AI Track, sponsored by Duality, requires participants to develop AI-driven solutions addressing the official problem statement provided by Duality.
+Problem Statement: https://drive.google.com/file/d/1_GEa24CdgSNaO8VYZ0U7hxatjIDSfnhW/view?usp=drivesdk
+Prize: $100 for the winning team`,
         icon: React.createElement(FaGhost, { size: 52, className: "text-green-500" }),
-        totalPrice: '$100',
+        totalPrice: '',
         color: '#22c55e',
     },
     {
         title: 'AlgoRand',
-        description: 'Special track for AlgoRand. $300 for top 3 winners.',
+        description: `The Algorand Track, sponsored by Algorand, requires participants to build Web3-based solutions on the Algorand ecosystem addressing the official problem statement provided by Algorand.
+        Prize: $300 for top 3 winning teams`,
         icon: React.createElement(FaCoins, { size: 52, className: "text-green-500" }),
-        totalPrice: '$300',
+        totalPrice: '',
         color: '#22c55e',
     },
+    // {
+    //     title: 'Stellar',
+    //     description: 'Special track for Stellar. $100 for winner.',
+    //     icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
+    //     totalPrice: '$100',
+    //     color: '#22c55e',
+    // },
     {
-        title: 'Stellar',
-        description: 'Special track for Stellar. $100 for winner.',
-        icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
-        totalPrice: '$100',
-        color: '#22c55e',
-    },
-    {
-        title: 'Smallify AI',
-        description: 'Special track for Smallify AI. Rs 5000 worth for winner.',
+        title: 'Smolify AI',
+        description: `The Smolify AI Track invites participants to build intelligent solutions using the Smolify AI platform. Teams must leverage Smolify’s AI capabilities to create applications that simplify complex tasks, automate workflows, or generate meaningful insights to solve real-world problems. 
+        Prize: ₹3000 for the winning team`,
         icon: React.createElement(FaBrain, { size: 52, className: "text-green-500" }),
-        totalPrice: 'Rs 5000',
+        totalPrice: '',
         color: '#22c55e',
     },
     {
         title: 'Requestly',
-        description: 'Special track for Requestly. $50 for winner.',
+        description: `Build tools that enhance the developer and testing workflow using the Requestly API Client. Projects should demonstrate advanced API usage such as complex request construction, authentication handling, endpoint validation, automated testing with pre/post scripts, and collaborative workflows using local or team workspaces. Submissions will be evaluated on workflow efficiency, technical depth (environment variables, automated headers, scripting), and debugging effectiveness using Requestly. Teams must include a short demo/video showing Requestly in action along with a brief write-up explaining its impact on their project. Ideas include creating well-structured API collections or using Requestly to audit and optimize backend performance. 
+        Prize: $100 for the winning team`,
         icon: React.createElement(FaTools, { size: 52, className: "text-green-500" }),
-        totalPrice: '$50',
+        totalPrice: '',
         color: '#22c55e',
     },
 ];

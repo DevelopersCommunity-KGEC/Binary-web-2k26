@@ -65,18 +65,15 @@ const Sponsors = () => {
                             <h3 className="mb-10 text-center text-xl md:text-2xl font-bold uppercase tracking-[0.3em] font-pixelate text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)] px-4">
                                 {tier.title}
                             </h3>
-                            <div className={`w-full max-w-7xl mx-auto px-4 sm:px-12 grid grid-cols-2 ${!isMobile ? (tier.title === 'Giga Sponsor' ? 'md:grid-cols-3' : 'md:grid-cols-4') : ''} gap-y-16 gap-x-6 justify-items-center`}>
-                                {tier.sponsors.map((sponsor, index) => {
-                                    const isLastOdd = isMobile && tier.sponsors.length % 2 !== 0 && index === tier.sponsors.length - 1;
-                                    return (
-                                        <div 
-                                            key={index} 
-                                            className={`w-full flex justify-center items-center ${isLastOdd ? 'col-span-2' : ''}`}
-                                        >
-                                            <SponsorComponent {...sponsor} />
-                                        </div>
-                                    );
-                                })}
+                            <div className="w-full max-w-7xl mx-auto px-4 sm:px-12 flex flex-wrap justify-center gap-y-16 gap-x-12">
+                                {tier.sponsors.map((sponsor, index) => (
+                                    <div 
+                                        key={index} 
+                                        className="flex justify-center items-center"
+                                    >
+                                        <SponsorComponent {...sponsor} />
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     ))}

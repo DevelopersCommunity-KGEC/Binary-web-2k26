@@ -26,6 +26,7 @@
   --font-mono: var(--font-geist-mono);
   --font-press-start: var(--font-press-start-2p);
   --font-sf-pixelate: 'SF_Pixelate';
+  --font-play: var(--font-play);
 
   @keyframes glitch {
     0% {

@@ -2,14 +2,14 @@ export const sponsors = [
   {
     title: 'Tera Sponsor',
     sponsors: [
+      // {
+      //   logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975911/image-removebg-preview_30_yngukc.png',
+      //   link: 'https://vercel.com/',
+      //   alt: 'Vercel logo',
+      //   description: 'Cloud Deployment Partner',
+      // },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975911/image-removebg-preview_30_yngukc.png',
-        link: 'https://vercel.com/',
-        alt: 'Vercel logo',
-        description: 'Cloud Deployment Partner',
-      },
-      {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975962/image-removebg-preview_31_j1r4pu.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563602/team1.bba0deaf_m4i6po.png',
         link: 'https://x.com/AvaxTeam1',
         alt: 'Avalanche team1 logo',
         description: 'Web3 Scaling Partner',
@@ -20,34 +20,34 @@ export const sponsors = [
         alt: 'Vercel V0 logo',
         description: 'AI UI Generation Partner',
       },
-      {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772976122/image-removebg-preview_33_wxdtc5.png',
-        link: 'https://www.avax.network/',
-        alt: 'Avalanche logo',
-        description: 'Web3 Infrastructure Partner',
-      },
+      // {
+      //   logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772976122/image-removebg-preview_33_wxdtc5.png',
+      //   link: 'https://www.avax.network/',
+      //   alt: 'Avalanche logo',
+      //   description: 'Web3 Infrastructure Partner',
+      // },
     ],
   },
   {
     title: 'Giga Sponsor',
     sponsors: [
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975714/image-removebg-preview_27_wfgsxx.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773568429/duality_nnpwku.svg',
         link: 'https://duality.ai/',
         alt: 'Duality AI logo',
         description: 'Simulation AI Partner',
       },
+      // {
+      //   logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975792/image-removebg-preview_28_lglo8f.png',
+      //   link: 'https://www.stellar.org/',
+      //   alt: 'Stellar logo',
+      //   description: 'Blockchain Partner',
+      // },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975792/image-removebg-preview_28_lglo8f.png',
-        link: 'https://www.stellar.org/',
-        alt: 'Stellar logo',
-        description: 'Blockchain Partner',
-      },
-      {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975851/image-removebg-preview_29_yjmtcl.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563696/algorand-bharat-logo-white-CMYK_1_yvcrl1.png',
         link: 'https://www.algorand.foundation/',
         alt: 'Algorand logo',
-        description: 'Blockchain Ecosystem Partner',
+        description: 'Blockchain Infrastructure Partner',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const sponsors = [
     title: 'Mega Sponsor',
     sponsors: [
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975193/image-removebg-preview_20_vycyi7.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773564105/smolify_logo-removebg-preview_eoe7lg.png',
         link: 'https://smol.ai/',
         alt: 'Smolify AI logo',
         description: 'AI Tools Partner',
@@ -67,7 +67,7 @@ export const sponsors = [
         description: 'Merchandise Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975269/image-removebg-preview_21_vjlxii.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563887/thisOne_szkiep.png',
         link: 'https://www.risein.com/',
         alt: 'Rise In logo',
         description: 'Startup Community Partner',
@@ -76,7 +76,7 @@ export const sponsors = [
         logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975313/image-removebg-preview_22_yk6h1o.png',
         link: 'https://requestly.io/',
         alt: 'Requestly logo',
-        description: 'Developer Tools Partner',
+        description: 'API Debugging & Testing Tool',
       },
       {
         logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975399/image-removebg-preview_24_xq5gep.png',
@@ -90,12 +90,12 @@ export const sponsors = [
         alt: 'Hack Nest logo',
         description: 'Hackathon Support Partner',
       },
-      {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975553/image-removebg-preview_25_o1l8er.png',
-        link: 'https://hela.xyz/',
-        alt: 'Hela logo',
-        description: 'Product Partner',
-      },
+      // {
+      //   logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975553/image-removebg-preview_25_o1l8er.png',
+      //   link: 'https://hela.xyz/',
+      //   alt: 'Hela logo',
+      //   description: 'Product Partner',
+      // },
       {
         logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975623/image-removebg-preview_26_hunbno.png',
         link: 'https://devfolio.co/',
@@ -108,19 +108,19 @@ export const sponsors = [
     title: 'Kilo Sponsor',
     sponsors: [
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974467/image-removebg-preview_7_xmxdlr.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563285/interview_buddy.a25fbacc_xqa1h9.svg',
         link: 'https://interviewbuddy.net/',
         alt: 'Interview Buddy logo',
         description: 'Interview Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974531/image-removebg-preview_8_ypldgz.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563504/Screenshot_15-Mar_13-51-15_19892-removebg-preview_g0dwgd.png',
         link: 'https://featherless.ai/',
         alt: 'Featherless AI logo',
         description: 'inference Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974578/image-removebg-preview_9_vlmpa9.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563286/balsamiq.c4b4802e_mzcdo1.png',
         link: 'https://balsamiq.com/',
         alt: 'Balsamiq logo',
         description: 'Wireframing Partner',
@@ -132,19 +132,19 @@ export const sponsors = [
         description: 'Learning Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974664/image-removebg-preview_11_fmyama.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563285/n8n-removebg-preview_sjaobg.png',
         link: 'https://n8n.io/',
         alt: 'n8n logo',
         description: 'Automation Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974704/image-removebg-preview_12_yaszjh.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563285/xyz.d03581cb_asmlym.png',
         link: 'https://gen.xyz/',
         alt: 'xyz logo',
         description: 'Domain Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974782/image-removebg-preview_13_p7h1bh.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563505/Screenshot_15-Mar_13-56-04_9587-removebg-preview_fcddwo.png',
         link: 'https://mercyforanimals.org/',
         alt: 'Mercy for animals logo',
         description: 'Social Impact Partner',
@@ -156,7 +156,7 @@ export const sponsors = [
         description: 'AI Development Partner',
       },
       {
-        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772974882/image-removebg-preview_15_ylgtez.png',
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563285/appwrite_rnzotm.svg',
         link: 'https://appwrite.io/',
         alt: 'appwrite logo',
         description: 'Backend Partner',
