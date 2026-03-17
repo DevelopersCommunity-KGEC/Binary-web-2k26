@@ -51,9 +51,11 @@ export const tracks: Track[] = [
     },
     {
         title: 'Web3',
-        description: `Teams participating in the Web3 track must choose the following:
+        description: `Teams participating in the Web3 track can choose among the following 2 tracks:
 
-1. Algorand Track – Build a Web3 solution on the Algorand ecosystem based on the official problem statement. Prize: $300 for the top 3 teams.
+1. Algorand Track - Build a Web3 solution on the Algorand ecosystem based on the official problem statement. Prize: $300 for the top 3 teams.
+
+2. Stellar Track - sponsored by Stellar, requires participants to develop Web3 and blockchain-based solutions using the Stellar network addressing the official problem statement provided by Stellar. Prize: $50 for the winning team
 `,
         icon: React.createElement(FaCubes, { size: 52, className: "text-green-500" }),
         totalPrice: '',
@@ -131,6 +133,14 @@ Prize: $100 for the winning team`,
         description: `The Algorand Track, sponsored by Algorand, requires participants to build Web3-based solutions on the Algorand ecosystem addressing the official problem statement provided by Algorand.
         Prize: $300 for top 3 winning teams`,
         icon: React.createElement(FaCoins, { size: 52, className: "text-green-500" }),
+        totalPrice: '',
+        color: '#22c55e',
+    },
+    {
+        title: 'Stellar',
+        description: `The Stellar Track, sponsored by Stellar, requires participants to develop Web3 and blockchain-based solutions using the Stellar network addressing the official problem statement provided by Stellar.
+        Prize: $50 for the winning team`,
+        icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
         totalPrice: '',
         color: '#22c55e',
     },

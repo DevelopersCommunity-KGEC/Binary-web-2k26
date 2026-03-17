@@ -37,17 +37,17 @@ export const sponsors = [
         alt: 'Duality AI logo',
         description: 'Simulation AI Partner',
       },
-      // {
-      //   logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975792/image-removebg-preview_28_lglo8f.png',
-      //   link: 'https://www.stellar.org/',
-      //   alt: 'Stellar logo',
-      //   description: 'Blockchain Partner',
-      // },
       {
         logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563696/algorand-bharat-logo-white-CMYK_1_yvcrl1.png',
         link: 'https://www.algorand.foundation/',
         alt: 'Algorand logo',
         description: 'Blockchain Infrastructure Partner',
+      },
+      {
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563887/thisOne_szkiep.png',
+        link: 'https://www.risein.com/',
+        alt: 'Rise In logo',
+        description: 'Startup Community Partner',
       },
     ],
   },
@@ -66,17 +66,18 @@ export const sponsors = [
         alt: 'Modisconto logo',
         description: 'Merchandise Partner',
       },
-      {
-        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773563887/thisOne_szkiep.png',
-        link: 'https://www.risein.com/',
-        alt: 'Rise In logo',
-        description: 'Startup Community Partner',
-      },
+
       {
         logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975313/image-removebg-preview_22_yk6h1o.png',
         link: 'https://requestly.io/',
         alt: 'Requestly logo',
         description: 'API Debugging & Testing Tool',
+      },
+      {
+        logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975792/image-removebg-preview_28_lglo8f.png',
+        link: 'https://www.stellar.org/',
+        alt: 'Stellar logo',
+        description: 'Blockchain Partner',
       },
       {
         logo: 'https://res.cloudinary.com/dkxskaege/image/upload/v1772975399/image-removebg-preview_24_xq5gep.png',
@@ -102,6 +103,12 @@ export const sponsors = [
         alt: 'Devfolio logo',
         description: 'Platform Partner',
       },
+      {
+        logo: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773754215/flutterflow_qjxqjh.svg',
+        link: 'https://flutterflow.io/',
+        alt: 'FlutterFlow logo',
+        description: 'Flutter App Builder',
+      }
     ],
   },
   {

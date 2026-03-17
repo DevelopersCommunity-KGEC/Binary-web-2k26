@@ -79,4 +79,17 @@ export const communityPartnersItems = [
     url: 'https://www.linkedin.com/company/resourcio25/',
     imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773383361/resourcio_zvbwkt.png',
   },
+  {
+    url: 'https://www.devdotcom.in/',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773754654/ddc.d283f005_xwehrq.png',
+  },
+  {
+    url: 'https://www.linkedin.com/school/jadavpur-university-science-club/?originalSubdomain=in',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773754649/1_q4jxge.png',
+    isSmall: true,
+  },
+  {
+    url: 'https://www.linkedin.com/company/codasauras-developers-community/?trk=public_post_main-feed-card-text',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773758385/codasauras-removebg-preview_jl5hau.png',
+  },
 ];

@@ -56,7 +56,7 @@ export const mentors = [
   {
     name: 'Rohit Debnath',
     imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773407746/Rohit_pnytha.jpg',
-    position: 'intern, tintervue.io',
+    position: 'intern, Intervue.io',
     linkedinUrl: 'https://www.linkedin.com/in/rohit-debnath',
   },
   {
@@ -82,5 +82,29 @@ export const mentors = [
     imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773409156/IMG20260220125335_1_-_Abhinaba_Biswas_mozflm.jpg',
     position: 'Co-Founder, MarsLab Studio',
     linkedinUrl: 'https://www.linkedin.com/in/abhinaba-biswas',
+  },
+  {
+    name: 'Baivab Mukhopadhyay',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773755600/IMG-20260316-WA0132_-_Baivab_Mukhopadhyay_yp376l.jpg',
+    position: 'DevOps Engineer, Accuknox',
+    linkedinUrl: 'https://www.linkedin.com/in/itsbaivab/',
+  },
+  {
+    name: 'Snihita Nandi',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773755601/Untitled_design_36_-_Snihita_Nandi_w3ef0j.png',
+    position: 'Product & Visual Designer, XorenAI',
+    linkedinUrl: 'https://www.linkedin.com/in/snihita-nandi/',
+  },
+  {
+    name: 'Subham Bhattacharya',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773755601/DSC_0016_1_1_-_Subham_Bhattacharya_kdqqze.jpg',
+    position: 'Software Engineer, ABP',
+    linkedinUrl: 'https://www.linkedin.com/in/subham2409/',
+  },
+  {
+    name: 'Swastik Sarkar',
+    imageUrl: 'https://res.cloudinary.com/dlxpcyiin/image/upload/v1773755600/Swastik_Sarkar_-_Swastik_Sarkar_dq4s72.jpg',
+    position: 'SDE Intern, Veryze Technologies Pvt. Ltd.',
+    linkedinUrl: 'https://www.linkedin.com/in/swastiksarkar001/',
   },
 ];
