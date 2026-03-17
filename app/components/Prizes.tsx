@@ -9,7 +9,7 @@ import { Trophy, Medal, Award } from "lucide-react";
 const Prizes: React.FC = () => {
   return (
     <PageSection id="prizes" className="overflow-visible">
-      <div className="py-20 relative px-4 md:px-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
         {/* Background Decorations */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none select-none overflow-hidden">
           <div className="grid grid-cols-10 gap-x-12 opacity-40 font-mono text-green-500 text-[10px]">
@@ -23,10 +23,10 @@ const Prizes: React.FC = () => {
           <ArcadeHeader text="Prizes" />
         </div>
 
-        {/* Podium Layout */}
-        <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-12 md:gap-8 lg:gap-16">
+        {/* Podium Layout - Vertical Column on Mobile, Flex Row on Desktop */}
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-12 md:gap-8 w-5/6 md:w-full mx-auto lg:gap-16">
           {/* 2nd Runner Up (3rd Place) */}
-          <div className="order-2 md:order-1">
+          <div className="order-3 md:order-1 w-full md:w-auto">
             <PrizeCard
               rank="2nd Runner Up"
               totalPrize="₹25,000"
@@ -39,7 +39,7 @@ const Prizes: React.FC = () => {
           </div>
 
           {/* Winner (1st Place) */}
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 w-full md:w-auto">
             <PrizeCard
               rank="Winner"
               totalPrize="₹50,000"
@@ -53,7 +53,7 @@ const Prizes: React.FC = () => {
           </div>
 
           {/* 1st Runner Up (2nd Place) */}
-          <div className="order-3">
+          <div className="order-2 md:order-3 w-full md:w-auto">
             <PrizeCard
               rank="1st Runner Up"
               totalPrize="₹35,000"
