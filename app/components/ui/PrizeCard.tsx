@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 
@@ -26,45 +26,88 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
   isMain = false,
   delay = 0,
 }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{
-        type: "spring",
+  const cardVariants = {
+    initial: { opacity: 0, y: 50 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring" as const,
         stiffness: 400,
         damping: 30,
-        delay: delay, // Only applies to initial entrance
-      }}
-      whileHover={{
-        y: -15,
-        scale: 1.02,
-        transition: {
-          type: "spring",
-          stiffness: 400,
-          damping: 20,
-          delay: 0, // Immediate response on hover
-        },
-      }}
+        delay: delay,
+      },
+    },
+    hover: {
+      y: -15,
+      scale: 1.02,
+      transition: {
+        type: "spring" as const,
+        stiffness: 400,
+        damping: 20,
+      },
+    },
+    tap: { scale: 0.98 },
+  };
+
+  const glowVariants = {
+    initial: { opacity: 0 },
+    hover: { opacity: 1, transition: { duration: 0.3 } },
+  };
+
+  const scanlineVariants = {
+    initial: { opacity: 0 },
+    hover: { opacity: 0.1, transition: { duration: 0.3 } },
+  };
+
+  const innerIconVariants = {
+    initial: { rotate: -45 },
+    animate: { rotate: -45 },
+    hover: {
+      rotate: 0,
+      transition: { type: "spring" as const, stiffness: 400, damping: 15 },
+    },
+  };
+
+  const iconVariants = {
+    initial: { scale: 1, rotate: 45 },
+    animate: { scale: 1, rotate: 45 },
+    hover: {
+      scale: 1.1,
+      rotate: 0,
+      transition: { type: "spring" as const, stiffness: 400, damping: 15 },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      initial="initial"
+      whileInView="animate"
+      whileHover="hover"
+      whileTap="tap"
       viewport={{ once: true }}
       className={cn(
-        "relative group flex flex-col items-center",
-        isMain ? "w-full md:w-80" : "w-full md:w-72",
+        "relative group flex flex-col items-center shrink-0 w-full mx-auto md:w-72 lg:w-72",
+        isMain && "md:w-80 lg:w-80",
       )}
     >
-      {/* Medal Icon Container - Elevated Z-index to prevent border overlap */}
+      {/* Medal Icon Container - Elevated Z-index */}
       <div className="relative z-30 -mb-8">
         <motion.div
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          className="p-4 bg-black border-2 rounded-sm rotate-45 group-hover:rotate-0 transition-transform duration-300"
+          variants={iconVariants}
+          className="p-4 bg-black border-2 rounded-sm"
           style={{
             borderColor: color,
             boxShadow: `0 0 20px ${color}44`,
           }}
         >
-          <div className="-rotate-45 group-hover:rotate-0 transition-transform duration-300">
+          <motion.div
+            variants={innerIconVariants}
+            className="flex items-center justify-center"
+          >
             <Icon size={isMain ? 48 : 36} style={{ color }} />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -79,7 +122,7 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
           boxShadow: `inset 0 0 30px ${color}11`,
         }}
       >
-        {/* Arcade Rivets / Corner Brackets - Z-index fixed */}
+        {/* Arcade Rivets / Corner Brackets */}
         <div
           className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 z-20"
           style={{ borderColor: color }}
@@ -97,8 +140,11 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
           style={{ borderColor: color }}
         />
 
-        {/* Scanline / CRT Effect Overlay (Visible on Hover) - Hardware accelerated */}
-        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 transition-opacity duration-300 z-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] transform translateZ(0)" />
+        {/* Scanline / CRT Effect Overlay - Synchronized with variants */}
+        <motion.div
+          variants={scanlineVariants}
+          className="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] transform translateZ(0)"
+        />
 
         {/* Decorative Binary/Code elements */}
         <div
@@ -108,7 +154,7 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
           {"{1 0}"}
         </div>
 
-        {/* Sub-header Banner (Skewed) */}
+        {/* Sub-header Banner */}
         <div className="absolute top-12 -right-2 w-4/5 z-20">
           <div
             className="py-1.5 px-6 skew-x-[-20deg] flex justify-center items-center relative overflow-hidden"
@@ -152,7 +198,6 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
             </p>
           </div>
 
-          {/* Benefits Section - Larger text as requested */}
           <div className="mt-auto flex flex-col gap-2 pt-6 border-t border-white/10">
             <div className="flex items-center gap-2">
               <div
@@ -172,17 +217,19 @@ const PrizeCard: React.FC<PrizeCardProps> = ({
           </div>
         </div>
 
-        {/* Bottom Intentifier Glow */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-1/2 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
+        {/* Bottom Intentifier Glow - Synchronized */}
+        <motion.div
+          variants={glowVariants}
+          className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none"
           style={{
             background: `linear-gradient(to top, ${color}22 0%, transparent 100%)`,
           }}
         />
 
-        {/* Glowing Border effect on hover - Moved INSIDE the card body to align correctly */}
-        <div
-          className="absolute inset-0 border-2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none blur-[1px] z-10"
+        {/* Glowing Border effect - Synchronized */}
+        <motion.div
+          variants={glowVariants}
+          className="absolute inset-0 border-2 pointer-events-none blur-[1px] z-10"
           style={{
             borderColor: color,
             boxShadow: `0 0 25px ${color}33, inset 0 0 15px ${color}22`,
