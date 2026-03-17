@@ -32,7 +32,7 @@ export const tracks: Track[] = [
         description:
             'The Education Track empowers participants to develop cutting-edge solutions that enhance learning experiences and bridge educational gaps. Participants can create applications that offer personalized learning pathways, improve access to quality education for underserved communities, or facilitate seamless collaboration between teachers and students. This track is all about using technology to revolutionize education and make learning accessible to all.',
         icon: React.createElement(FaGraduationCap, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -43,7 +43,7 @@ export const tracks: Track[] = [
         description:
             'The Health Track encourages participants to develop innovative solutions that improve healthcare accessibility and efficiency. Participants can create applications that assist in remote patient monitoring, enhance mental health support, streamline medical data management, or promote healthier lifestyles. This track is all about leveraging technology to make healthcare smarter, more inclusive, and impactful.',
         icon: React.createElement(FaHeartbeat, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -70,7 +70,7 @@ export const tracks: Track[] = [
 Develop intelligent systems using AI, Machine Learning, or Computational Intelligence to solve real-world problems efficiently. Teams should focus on building innovative solutions that demonstrate effective model development, training, and performance evaluation.
 `,
         icon: React.createElement(FaRobot, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -81,7 +81,7 @@ Develop intelligent systems using AI, Machine Learning, or Computational Intelli
         description:
             'The IoT Track challenges participants to develop innovative solutions that connect the physical and digital worlds. Participants can build smart home systems, optimize industrial processes, enhance healthcare monitoring, or create intelligent environmental sensors. This track is all about leveraging IoT technology to make systems smarter, more efficient, and interconnected.',
         icon: React.createElement(FaMicrochip, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -92,7 +92,7 @@ Develop intelligent systems using AI, Machine Learning, or Computational Intelli
         description:
             'The Open Innovation Track gives participants the freedom to think beyond boundaries and create solutions that address real-world challenges. Whether it’s developing groundbreaking applications, optimizing existing processes, or exploring unconventional ideas, this track is all about encouraging creativity, experimentation, and impactful problem-solving.',
         icon: React.createElement(FaLightbulb, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -102,7 +102,7 @@ Develop intelligent systems using AI, Machine Learning, or Computational Intelli
         title: 'Best Beginners Team',
         description: 'Awarded to the best performing team consisting of first-time participants.',
         icon: React.createElement(FaUsers, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',
@@ -113,7 +113,7 @@ Develop intelligent systems using AI, Machine Learning, or Computational Intelli
         description:
             'Given to the team that wins the most votes from the audience for their project.',
         icon: React.createElement(FaStar, { size: 52, className: "text-green-500" }),
-        totalPrice: '5K',
+        totalPrice: '10K',
         cashPrice: '3K',
         winnerName: '',
         winnerUrl: '',

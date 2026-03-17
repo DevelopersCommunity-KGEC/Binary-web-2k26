@@ -29,7 +29,7 @@ const Prizes: React.FC = () => {
           <div className="order-3 md:order-1 w-full md:w-auto">
             <PrizeCard
               rank="2nd Runner Up"
-              totalPrize="₹25,000"
+              totalPrize="₹20,000"
               cashPrize="₹10,000"
               winner="Vibe Coders"
               icon={Medal}
@@ -56,7 +56,7 @@ const Prizes: React.FC = () => {
           <div className="order-2 md:order-3 w-full md:w-auto">
             <PrizeCard
               rank="1st Runner Up"
-              totalPrize="₹35,000"
+              totalPrize="₹30,000"
               cashPrize="₹15,000"
               winner="Rule Breakers"
               icon={Medal}
