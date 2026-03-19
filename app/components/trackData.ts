@@ -54,8 +54,6 @@ export const tracks: Track[] = [
         description: `Teams participating in the Web3 track can choose among the following 2 tracks:
 
 1. Algorand Track - Build a Web3 solution on the Algorand ecosystem based on the official problem statement. Prize: $300 for the top 3 teams.
-
-2. Stellar Track - sponsored by Stellar, requires participants to develop Web3 and blockchain-based solutions using the Stellar network addressing the official problem statement provided by Stellar. Prize: $50 for the winning team
 `,
         icon: React.createElement(FaCubes, { size: 52, className: "text-green-500" }),
         totalPrice: '',
@@ -136,14 +134,14 @@ Prize: $100 for the winning team`,
         totalPrice: '',
         color: '#22c55e',
     },
-    {
-        title: 'Stellar',
-        description: `The Stellar Track, sponsored by Stellar, requires participants to develop Web3 and blockchain-based solutions using the Stellar network addressing the official problem statement provided by Stellar.
-        Prize: $50 for the winning team`,
-        icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
-        totalPrice: '',
-        color: '#22c55e',
-    },
+    // {
+    //     title: 'Stellar',
+    //     description: `The Stellar Track, sponsored by Stellar, requires participants to develop Web3 and blockchain-based solutions using the Stellar network addressing the official problem statement provided by Stellar.
+    //     Prize: $50 for the winning team`,
+    //     icon: React.createElement(FaCode, { size: 52, className: "text-green-500" }),
+    //     totalPrice: '',
+    //     color: '#22c55e',
+    // },
     // {
     //     title: 'Stellar',
     //     description: 'Special track for Stellar. $100 for winner.',
@@ -161,7 +159,7 @@ Prize: $100 for the winning team`,
     },
     {
         title: 'Requestly',
-        description: `Build tools that enhance the developer and testing workflow using the Requestly API Client. Projects should demonstrate advanced API usage such as complex request construction, authentication handling, endpoint validation, automated testing with pre/post scripts, and collaborative workflows using local or team workspaces. Submissions will be evaluated on workflow efficiency, technical depth (environment variables, automated headers, scripting), and debugging effectiveness using Requestly. Teams must include a short demo/video showing Requestly in action along with a brief write-up explaining its impact on their project. Ideas include creating well-structured API collections or using Requestly to audit and optimize backend performance. 
+        description: `Use the Requestly API Client to build projects that demonstrate effective API testing through HTTP requests (GET, POST, etc.), handling authentication, and validating responses; submissions will be evaluated based on how efficiently teams use the API client to test endpoints, debug APIs, and structure their requests, and must include a short demo/video showing Requestly in action along with a brief write-up explaining its impact on the project. 
         Prize: $100 for the winning team`,
         icon: React.createElement(FaTools, { size: 52, className: "text-green-500" }),
         totalPrice: '',
