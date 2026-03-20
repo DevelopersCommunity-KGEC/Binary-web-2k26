@@ -183,7 +183,7 @@ export default function Navbar() {
         transition={{ ease: "linear", duration: 0.1 }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex items-center justify-between h-16">
           <div className="shrink-0">
             <div className="flex items-center gap-4">
@@ -196,15 +196,16 @@ export default function Navbar() {
                   className="h-10 w-auto object-contain"
                 />
               </a>
-              {/* <a href="#" className="flex items-center">
-                                <NextImage
-                                    src="/assets/IEEE_kolkata.png"
-                                    alt="IEEE Kolkata Logo"
-                                    width={50}
-                                    height={50}
-                                    className="h-10 w-auto object-contain"
-                                />
-                            </a> */}
+              
+              <a href="#" className="flex items-center">
+                <NextImage
+                  src="/assets/IEEE_kolkata.png"
+                  alt="IEEE Kolkata Logo"
+                  width={150}
+                  height={50}
+                  className="h-10 w-auto object-contain"
+                />
+              </a>
             </div>
           </div>
           <div className="hidden md:block">

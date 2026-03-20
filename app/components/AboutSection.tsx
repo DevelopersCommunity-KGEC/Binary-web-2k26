@@ -111,16 +111,27 @@ const About = () => {
             />
           </div>
         </div>
-        <div className='flex flex-wrap items-center justify-center w-full gap-2 md:gap-4 text-3xl md:text-5xl'>
-          <p className='text-center w-full md:w-auto -ml-2 md:ml-4 text-2xl md:text-3xl'>-Hosted by</p>
-          <p className='text-center'>Dev Community</p>
-          <Image
-            src='/images/dcLogo.png'
-            alt='Dev Community Logo'
-            width={80}
-            height={80}
-            className='inline-block w-12 h-12 md:w-20 md:h-20'
-          />
+        <div className="flex flex-col items-center justify-center w-full mt-12 md:mt-24">
+          <div className="mb-12 text-[2rem] md:text-[3rem] scale-75 md:scale-100">
+            Hosted by
+          </div>
+          <div className='flex items-center justify-center w-full gap-8 md:gap-24'>
+            <Image
+              src='/images/dcLogo.png'
+              alt='Dev Community Logo'
+              width={180}
+              height={180}
+              className='w-20 h-20 md:w-36 md:h-36 object-contain'
+            />
+            <div className="w-[2px] h-16 md:h-28 bg-white rounded-full" />
+            <Image
+              src='/assets/IEEE_kolkata.png'
+              alt='IEEE Kolkata Logo'
+              width={350}
+              height={150}
+              className='h-16 md:h-28 w-auto object-contain'
+            />
+          </div>
         </div>
       </div>
     </PageSection>
