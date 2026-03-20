@@ -104,15 +104,26 @@ const CommunityPartners = () => {
                 ) : (
                     // Desktop: 4 logos in a row
                     <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen grid grid-cols-4 gap-y-12 gap-x-6 px-12 pb-16">
-                        {communityPartnersItems.map((item, index) => (
-                            <div className="flex justify-center items-center" key={index}>
-                                <MemberComponent
-                                    url={item.url}
-                                    imageUrl={item.imageUrl}
-                                    isSmall={(item as any).isSmall}
-                                />
-                            </div>
-                        ))}
+                        {communityPartnersItems.map((item, index) => {
+                            const isCenterTwo =
+                                communityPartnersItems.length % 4 === 2 &&
+                                index === communityPartnersItems.length - 2;
+
+                            return (
+                                <div
+                                    className={`flex justify-center items-center ${
+                                        isCenterTwo ? "col-start-2" : ""
+                                    }`}
+                                    key={index}
+                                >
+                                    <MemberComponent
+                                        url={item.url}
+                                        imageUrl={item.imageUrl}
+                                        isSmall={(item as any).isSmall}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 )}
             </Section>
